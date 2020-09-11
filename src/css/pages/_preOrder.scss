@@ -1,0 +1,53 @@
+.order{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 5vw;
+
+
+    &__choose{
+        width: 60vw;
+        
+        margin-left: 10vw;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    
+    }
+
+    &__img{
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right: 8px;
+        height: 90%;
+        width: 50%;
+    }
+    &__card{
+        transition: all .2s;
+        &:hover{
+            transform: translateX(-10px);
+        }
+        width: 30%;
+        height: 30vh;
+        display: flex;
+        flex-flow: row;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        box-shadow: 3px 4px 3px 2px rgba(0, 0, 0, 0.471);
+        @media only screen and (max-width: 600px) {
+            width: 45%;
+        height: 30vh;
+        }
+    }
+
+    &__listCard{
+        width: 20vw;
+        border: 1px solid black;
+        position: fixed;
+        right:  4%;
+        top: 40px;
+        
+    }
+
+}
+

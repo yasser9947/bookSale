@@ -1,0 +1,14 @@
+.btn{
+   background-image: linear-gradient(to right bottom ,gold ,rgba(184, 181, 181, 0.178));
+   padding: 6px 40px;
+    border-radius: 30px;
+color: cornsilk;
+    &:link , &:visited {
+
+    }
+    &-text{
+        color: cornsilk;
+        text-decoration: none;
+    }
+
+}

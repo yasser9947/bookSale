@@ -1,0 +1,93 @@
+body {
+   
+        // background-color: blue;
+        background-image: linear-gradient(to right bottom , rgba(240, 250, 108, 0.698) ,rgba(163, 162, 144, 0.383));
+   
+    height: 100vh;
+}
+
+.theOrder {
+    height: 54vh;
+    &__h1{
+        text-align: center;
+        margin-bottom: 40px;
+        font-family: 'Kufam', cursive;
+        font-size: 3.5rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        background-image:  linear-gradient(to right bottom , rgb(136, 109, 35) ,rgba(83, 66, 8, 0.383));
+        -webkit-background-clip: text; // عشان يكون الباكقروند بالضبط على شكل التيكست ما يكون زياده
+        color: transparent; // عشان اللون يصير نفس الباكقروند 
+        letter-spacing: 2px;
+    
+        transition: all .2s; // غشان حركه الهوفر تصير سموث 
+    
+    
+    
+        &:hover {
+            transform: skewY(5deg)  skewX(5deg) ;
+            text-shadow: 0.5rem 1rem 2rem rgba(black,  0.2);
+        }
+
+    }
+
+}
+.box {
+
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    @media only screen and (max-width: 600px) {
+            height: 60%;
+       }
+
+    &__img{
+        @media only screen and (max-width: 600px) {
+             height: 150px;
+             width: 140px;
+            }
+         height: 300px;
+         width: 307px;
+    }
+
+    &__order  {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        border-radius: 4px;
+        box-shadow: 3px 4px 3px 2px rgba(0, 0, 0, 0.471);
+        transition: all .2s;
+        padding-bottom:460px ;
+        margin: 0 5px;
+        &:not(:last-child){
+            // margin-right: 50px;
+        }
+        @media only screen and (max-width: 600px) {
+            padding-bottom: 360px ;
+        }
+        
+        
+
+        &--1{
+            // background-color: blue;
+            background-image: linear-gradient(to right bottom , rgb(136, 109, 35) ,rgba(83, 66, 8, 0.383));
+        }
+        &--2{
+            // background-color: blue;
+            background-image: linear-gradient(to right bottom , rgb(136, 109, 35) ,rgba(83, 66, 8, 0.383));
+        }
+        
+
+        &:hover{
+            transform: translateY(-10px);
+        }
+       
+    }
+    &__p{
+        margin: 7px 5px;
+        text-align: center;
+    }
+
+}
+@import './component/btn';
+@import './pages/preOrder'
