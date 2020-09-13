@@ -1,0 +1,24 @@
+.container{
+    // background-image: linear-gradient(to right bottom ,rgb(59, 134, 156) ,rgba(165, 187, 114, 0.178));
+    border-radius: 10px;
+    width: 90vw;
+    height: fit-content;
+    margin: 5rem 5vw;
+
+    &__SearchBar{
+
+
+    }
+    &__radio{
+        margin-top: 1rem;
+        padding-top: 1rem;
+        display: flex;
+        flex-flow: row-reverse;
+        justify-content: center;
+    }
+
+
+
+
+}
+
