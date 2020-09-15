@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import '../../css/component/raido.scss'
-export const SearchBar = () => {
+
+export const SearchBar = ({search}) => {
 const [check, setCheck] = useState([ "rgb(26, 80, 97)" ,"" ,""])
 const [placeholder, setPlaceholder] = useState("....مبادئ ادارة الأعمال ,الفيزياء العامة ")
 
@@ -36,7 +37,7 @@ setCheck(arrayColor)
              
                     </form>
                     <div className="container2">
-                        <div className="Icon">
+                        <div className="Icon" onClick={search}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#657789" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="feather feather-search"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
                         </div>
                         <div className="InputContainer">

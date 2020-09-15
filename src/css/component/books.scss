@@ -18,6 +18,12 @@ $bp-largest: 75em;   // 1200px
 $bp-large: 62.5em;   // 1000px
 $bp-medium: 50em;    // 800px;
 $bp-small: 37.5em;    // 600px;
+@keyframes swep {
+    from {
+opacity: 0;    }
+    to {
+opacity: 1;    }
+  }
 .books {
     font-size: 10px;
     grid-column: center-start / center-end;
@@ -27,6 +33,10 @@ $bp-small: 37.5em;    // 600px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 70px;
     margin: 5% 1%;
+    animation-name: swep; 
+   
+    animation-duration: 2s;
+
 }
 
 .book {

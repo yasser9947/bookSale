@@ -1,0 +1,80 @@
+.oneBook{
+    display: flex;
+    justify-content: space-around;
+position: relative;
+box-shadow: 1px 1px 1px 2px rgba(10, 6, 6, 0.507);
+background-image:linear-gradient(-90deg,rgba(228, 230, 214, 0.603) ,rgba(139, 167, 41, 0.349));
+padding: 40px 0;
+    &__right{
+        position: relative;
+
+        height: 60vh;
+        width: 40vw;
+        padding: 1%;
+        background-image: unset;
+        border-radius: 5px;
+        box-shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.561);
+        display: flex;
+        flex-flow: row-reverse;
+
+        img {
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            // object-fit: cover;
+        }
+    }
+    &__left{
+        width: 40vw;
+        text-align: center;
+        // border: 1px  solid black;
+        // box-shadow: 1px 1px 1px 2px rgba(201, 39, 39, 0.116);
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        // align-items: center;
+        p{
+            text-align: right;
+            // border-top: 1px solid black;
+        }
+        h4{
+            text-align: right;
+            border-top: 1px solid black;
+        padding-top: 10px;        }
+    }
+    &__images{
+        display: flex;
+        flex-flow: column;
+        position: absolute;
+        
+        bottom: 10px;
+        left: 10px;
+       
+        z-index: 9999;
+        // background-color: black;
+
+        img{
+            width: 10%;
+            height: 10%;
+            object-fit: cover;
+            margin: 2px;
+            opacity: 0.5;
+            transition: all .2s;
+            cursor: pointer;
+            &:hover{
+                opacity: 1;
+                border: 3px solid green;
+            }
+        }
+    }
+
+    &__btn{
+       
+        // left: 10%;
+        display: inline-block ;
+        font-size: 20px; 
+        width: 50%;
+        padding:10px 10px;
+        background-image:linear-gradient(to right bottom ,rgb(43, 133, 48) ,rgba(145, 184, 53, 0.801));
+    }
+}

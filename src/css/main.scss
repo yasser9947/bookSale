@@ -1,9 +1,10 @@
 body {
    
         // background-color: blue;
-        background-image: linear-gradient(to right bottom , rgba(240, 250, 108, 0.698) ,rgba(163, 162, 144, 0.383));
-   
-    height: 100vh;
+        background-image: linear-gradient(to right bottom , rgba(240, 250, 108, 0.513) , rgba(240, 250, 108, 0.513));
+   background-size: 100%;
+   height:100vh;
+    
 }
 
 .theOrder {
@@ -92,3 +93,5 @@ body {
 @import './component/btn';
 @import './pages/preOrder';
 @import './pages/order';
+@import './pages/oneBook';
+@import './pages/login';

@@ -4,8 +4,9 @@ import money from "../../svg/money.svg"
 import user from "../../svg/user.png"
 import customer from "../../svg/customer-satisfaction.png"
 import location from "../../svg/location.png"
+import { Link } from 'react-router-dom'
 
-export const OneCard = () => {
+export const OneCard = (props) => {
     return (
        
           <div className="book">
@@ -38,8 +39,10 @@ export const OneCard = () => {
                     </svg>
                     <img src={money} height="30px" style={{marginRight :"7px"}} alt=""/>  <p>  26 Rs   </p>
                 </div>
-                <button className="btn2 book__btn">التواصل مع البائع</button>
+                <button onClick={()=>{props.history.push('/book')}} className="btn2 book__btn">مزيدا من التفاصيل</button>
             </div>
        
     )
 }
+
+

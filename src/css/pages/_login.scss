@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@1,700&display=swap');
+$color-primary : #55c57a;
+$color-primary-light:  #7ed56f;
+$color-primary-dark:#28b485;
+
+$color-secondary-light : #ffb900;
+$color-secondary-dark : #ff7730;
+
+$color-tertiary-light : #2998ff;
+$color-tertiary-dark : #5643fa;
+
+$color-grey-light-1 : #f7f7f7;
+
+$color-grey-dark:  #777;
+$color-white:#fff; 
+$color-black: #000;
+
+.Login{
+    display: flex;
+    justify-content: center;
+    // border: 1px solid black;
+    flex-flow: row;
+    // border-radius: 10px;
+
+    align-items: center;
+    background-image:  linear-gradient(to right bottom , url('../../svg/bookBg.jpeg') 50% ,rgba(#fff , 0.0) 50% );
+    @media only screen and (max-width: 600px) {
+        &__bg--1{
+            display: none;
+       
+           }
+           &__bg--2{
+            // display: none;
+
+            background-image:  linear-gradient(to right bottom ,rgba($color-primary-light,0.2) , rgba($color-primary-dark,.2) ), url('../../svg/bookBg.jpeg');
+            width: 200px;
+            height: 350px;
+             border-radius: 10px;
+           }
+    }
+    &__bg--1{
+     background-image:  linear-gradient(to right bottom ,rgba($color-primary-light,0.2) , rgba($color-primary-dark,.2) ), url('../../svg/bookBg.jpeg');
+     border-radius: 10px  0px 0px 10px;
+    }
+    &__bg--2{
+        // background-image:  linear-gradient(to right bottom ,rgba($color-primary-light,0.2) , rgba($color-primary-dark,.2) );
+        border-radius: 0px  10px 10px 0px;
+       }
+    //for background
+    &__bg{
+        box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.35);
+        
+      
+        width: 400px;
+        height: 350px;
+        padding:10px 70px 50px 70px;
+        // background-image:  linear-gradient(to right bottom ,rgba($color-primary-light,0.2) , rgba($color-primary-dark,.2) ), url('../../svg/bookBg.jpeg');
+        background-size: cover;
+        background-position: center;
+        
+
+    }
+    // form
+    &__logInForm{
+        display: flex;
+        flex-flow: column;
+        text-align: right;
+        margin-top: 20px;
+
+        h5{
+            border-top: 1px solid black;
+            text-align: center;
+            padding-top: 20px;
+            opacity: 0.5;
+            cursor: pointer;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        
+        label{
+            // transform: translate(0px, 26px);
+            opacity: 1;
+            display: inline-block;
+            z-index: 1;
+            margin-bottom: 3px;
+
+        }
+        input{
+            // opacity: 0.3;
+            z-index: 2;
+            text-align: right;
+            // background: none;
+            background-color: rgba($color: #fff, $alpha: .4);
+            border-radius: 10px;
+            padding: 5px;
+            border: none;
+            border:1px solid black;
+            margin-bottom: 10px;
+            &:focus {
+                border-bottom:2px solid rgba(109, 182, 231, 0.52);
+                transform: scale(1.01);
+            }
+        }
+        &__btn{
+            background-image:  linear-gradient(to right bottom ,rgba($color-primary-light,0.8) , rgba($color-primary-dark,.8) );
+            width: 40%;
+            margin-top: 10px;
+            transform: translate(145% , 0);
+            
+        }
+
+
+    }
+// h3
+    &__heading{
+        
+        display: flex;
+        font-family: 'Amiri', serif;
+        justify-content: space-around;
+
+        :hover{
+            opacity: 1;
+        }
+       
+        cursor: pointer;
+
+        &--1{
+            opacity: 0.5;
+            &:active{
+                border-bottom: 1px black solid;
+            }
+            }
+         
+        &--2{
+            border-bottom: 1px black solid;
+        }
+    }
+
+}
