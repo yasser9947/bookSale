@@ -1,9 +1,9 @@
 import React from 'react'
-import money from "../../svg/money.svg"
+import money from "../../../svg/money.svg"
 // user.png customer-satisfaction.png location.png
-import user from "../../svg/user.png"
-import customer from "../../svg/customer-satisfaction.png"
-import location from "../../svg/location.png"
+import user from "../../../svg/user.png"
+import customer from "../../../svg/customer-satisfaction.png"
+import location from "../../../svg/location.png"
 import { Link } from 'react-router-dom'
 
 export const OneCard = (props) => {

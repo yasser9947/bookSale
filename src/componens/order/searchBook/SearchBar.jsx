@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import '../../css/component/raido.scss'
+import '../../../css/component/raido.scss'
 
 export const SearchBar = ({search}) => {
 const [check, setCheck] = useState([ "rgb(26, 80, 97)" ,"" ,""])

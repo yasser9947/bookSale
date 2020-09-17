@@ -21,10 +21,13 @@ $color-black: #000;
     // border: 1px solid black;
     flex-flow: row;
     // border-radius: 10px;
-
+    box-shadow: 0 13px 23px  rgba($color: $color-black, $alpha: 0.35);
+padding: 20px 0;
     align-items: center;
     background-image:  linear-gradient(to right bottom , url('../../svg/bookBg.jpeg') 50% ,rgba(#fff , 0.0) 50% );
     @media only screen and (max-width: 600px) {
+        padding: 0;
+
         &__bg--1{
             display: none;
        
@@ -32,23 +35,26 @@ $color-black: #000;
            &__bg--2{
             // display: none;
 
-            background-image:  linear-gradient(to right bottom ,rgba($color-primary-light,0.2) , rgba($color-primary-dark,.2) ), url('../../svg/bookBg.jpeg');
+             background-image: linear-gradient(to right bottom , rgba(#f9fbe7, 0.463) , rgba(246, 240, 187, 0.37)), url('https://i.pinimg.com/originals/45/65/af/4565afc3791d800532723a28c329b3c1.jpg');
             width: 200px;
             height: 350px;
-             border-radius: 10px;
+             border-radius: 10px !important;
            }
     }
     &__bg--1{
-     background-image:  linear-gradient(to right bottom ,rgba($color-primary-light,0.2) , rgba($color-primary-dark,.2) ), url('../../svg/bookBg.jpeg');
+         background-image: linear-gradient(to right bottom , rgba(#f9fbe7, 0.463) , rgba(246, 240, 187, 0.37)), url('https://i.pinimg.com/originals/45/65/af/4565afc3791d800532723a28c329b3c1.jpg');
      border-radius: 10px  0px 0px 10px;
+     background-size: 100%;
+
     }
     &__bg--2{
         // background-image:  linear-gradient(to right bottom ,rgba($color-primary-light,0.2) , rgba($color-primary-dark,.2) );
         border-radius: 0px  10px 10px 0px;
+
        }
     //for background
     &__bg{
-        box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.35);
+        // box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.35);
         
       
         width: 400px;
@@ -103,10 +109,10 @@ $color-black: #000;
             }
         }
         &__btn{
-            background-image:  linear-gradient(to right bottom ,rgba($color-primary-light,0.8) , rgba($color-primary-dark,.8) );
-            width: 40%;
+            background-image:  linear-gradient(to right bottom ,rgba(#004d40,0.8) , rgba(#00251a,.8) );
+            width: 75%;
             margin-top: 10px;
-            transform: translate(145% , 0);
+            transform: translate(33%, 0);
             
         }
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Link ,withRouter} from 'react-router-dom'
 
-export const Login = () => {
+export const Login = withRouter(({history}) => {
     const [flag, setFlag] = useState(false)
 
     return (
@@ -22,7 +23,7 @@ export const Login = () => {
                         <input type="email" placeholder="yasser@hotmail.com" />
                         <label htmlFor="">كلمة المرور</label>
                         <input type="password" placeholder="**" />
-                        <button className="Login__logInForm__btn btn">تسجيل الدخول</button>
+                        <button onClick={()=>{history.push('/dash')}} to="/dash" className="Login__logInForm__btn btn">تسجيل الدخول</button>
                         <h5 >نسيت كلمة المرور</h5>
                     </div>
 
@@ -44,4 +45,4 @@ export const Login = () => {
             </div>
         </div>
     )
-}
+})

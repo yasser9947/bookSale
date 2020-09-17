@@ -1,7 +1,7 @@
 body {
    
         // background-color: blue;
-        background-image: linear-gradient(to right bottom , rgba(240, 250, 108, 0.513) , rgba(240, 250, 108, 0.513));
+        background-image: linear-gradient(to right bottom , rgba(#f9fbe7, 0.863) , rgba(246, 240, 187, 0.87));
    background-size: 100%;
    height:100vh;
     
@@ -58,24 +58,34 @@ body {
         border-radius: 4px;
         box-shadow: 3px 4px 3px 2px rgba(0, 0, 0, 0.471);
         transition: all .2s;
-        padding-bottom:460px ;
+       height: 400px;
         margin: 0 5px;
+        justify-content: space-between;
+        // padding: 200px 0;
+        @media only screen and (max-width: 600px) {
+            height: 280px;
+        }
         &:not(:last-child){
             // margin-right: 50px;
         }
         @media only screen and (max-width: 600px) {
-            padding-bottom: 360px ;
+            // padding-bottom: 360px ;
         }
         
         
 
         &--1{
             // background-color: blue;
-            background-image: linear-gradient(to right bottom , rgb(136, 109, 35) ,rgba(83, 66, 8, 0.383));
+            background-image: linear-gradient(to right bottom , #ffeac58c ,rgba(83, 66, 8, 0.383)),url('https://i.pinimg.com/originals/69/ae/77/69ae7713363c5f94349ee58f28966072.jpg') ;
+            // 
+            background-size: cover;
         }
         &--2{
             // background-color: blue;
-            background-image: linear-gradient(to right bottom , rgb(136, 109, 35) ,rgba(83, 66, 8, 0.383));
+
+            background-image: linear-gradient(to right bottom , rgba(83, 66, 8, 0.383) ,#ffeac5b0) , url('https://i.pinimg.com/originals/2d/b9/9d/2db99d692dda06047cad90282d4a3ea1.jpg');
+            background-position: left;
+
         }
         
 
@@ -93,5 +103,8 @@ body {
 @import './component/btn';
 @import './pages/preOrder';
 @import './pages/order';
-@import './pages/oneBook';
+
 @import './pages/login';
+@import './pages/dashboard';
+@import './tools/animations';
+@import './pages/oneBook';

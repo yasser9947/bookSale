@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {connect} from 'react-redux'
 import './App.css';
 import './css/main.scss'
 import { Home } from './componens/heme/Home';
@@ -9,23 +9,36 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { Order } from './order/Order';
-import { PreOrder } from './order/PreOrder';
-import { OneBook } from './order/OneBook';
+import { Order } from './componens/order/Order';
+import { PreOrder } from './componens/order/PreOrder';
+import { OneBook } from './componens/order/OneBook';
 import { Login } from './componens/user/Login';
+import ScrollToTop from './assist/ScrollToTop'
+import { Dashboard } from './componens/user/profile/Dashboard';
 
-function App() {
+function App(props) {
   return (
     <div className="">
+      {/* <button>+</button>
+  <h5>{props.count}</h5>
+      <button>-</button> */}
       <Router>
+      <ScrollToTop />
         <Route exact path ="/" component={Home} />
         <Route path ="/order" render={(props)=><Order {...props} />} />
         <Route path ="/book" component={OneBook} />
         {/* <Route path ="/preorder" component={PreOrder} /> */}
         <Route path ="/login" component={Login} />
+        <Route path ="/dash" component={Dashboard} />
      </Router>
     </div>
   );
 }
+function mapStateToProps (state ){
 
-export default App;
+  return {
+    count : state.count
+  }
+}
+
+export default connect(mapStateToProps)(App);

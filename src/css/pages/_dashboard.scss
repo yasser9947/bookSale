@@ -1,0 +1,117 @@
+.lines{
+    height: 20px;
+    // border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 40px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    div {
+        border-bottom: 2px solid black;
+    }
+}
+
+.dashboard {
+    display: flex;
+justify-content: center;
+margin-top: 50px;
+@media only screen and (max-width: 600px) {
+    
+    flex-flow: column-reverse;
+  
+}
+// left ======================================
+    &__left {
+        width: 80%;
+        border: 1px solid black;
+        margin: 3px;
+
+
+    }
+
+
+
+
+
+    // right ==================================
+    &__right {
+      width:   20%;
+      height: 100%;
+      background: #424a5d;
+      @media only screen and (max-width: 600px) {
+    
+        flex-flow: row-reverse;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+      
+     
+    
+      
+     
+    }
+
+// #68dff0
+      &__info {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          flex-flow: column;
+          text-align: center;
+          @media only screen and (max-width: 600px) {
+            img {
+                clip-path: circle(20% ) !important;
+                webkit-clip-path: circle(20% );
+              }
+              animation-name: scale2;
+              animation-duration: 2s;
+            
+        }
+          img {
+            clip-path: circle(30% );
+            webkit-clip-path:circle(30% );
+            object-fit: contain;
+          }
+      }
+
+   &__box{
+       width: 90%;
+       margin-left: 5%;
+       height: 50px;
+       position: relative;
+    //    background-color:
+transition: all 0.2s ;
+@media only screen and (max-width: 600px) {
+    
+    flex-flow: row-reverse;
+    display: flex;
+    margin-right: 4%;
+    animation-name: scale2;
+    animation-duration: 2s;
+}
+;    &:hover {
+            background-color: #68dff0;
+            transform: translateX(-6px);
+            
+      
+    }
+       &__a{
+        //    text-align: center;
+           transform: translate(-50% ,-50%);
+           text-decoration: none;
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           color: #fff;
+           
+          
+
+           
+       }
+   }
+
+
+    }
+}
