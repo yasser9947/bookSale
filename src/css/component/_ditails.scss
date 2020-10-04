@@ -1,0 +1,112 @@
+.ditails{
+    background-color: #f2f2f2;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    &__info {
+        display: flex;
+        justify-content: space-around;
+        height: 40%;
+        width: 100%;
+        margin-top: 1%;
+        flex-wrap: wrap;
+
+    }
+
+    &__circle {
+        max-height: 50%;
+        width: 20%;
+        // border: 1px solid black;
+        display: flex;
+        flex-flow: column-reverse;
+        justify-content: space-around;
+        // align-items: center;
+        padding: 0px 0;
+        color: black;
+        border-radius: 10px;
+        box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.413);
+        text-align: right;
+
+        &--1 {
+            background-image: linear-gradient(to right  bottom , #f48c06 ,#f2d68e  );
+        }
+        // 023e8a  caf0f8
+        &--2 {
+            background-image: linear-gradient(to right  bottom , #023e8a ,#caf0f8  );
+
+        }
+        // e5383b
+        &--3 {
+            background-image: linear-gradient(to right  bottom , #e5383b ,#caf0f8  );
+
+        }
+        &--4{
+            background-image: linear-gradient(to right  bottom , #538d22 ,#aad576  );
+
+        }
+      
+       
+    
+        h5 {
+            margin: 0 10px 0 0;
+            padding: 0;
+            font-size: 30px;
+        font-weight: 200;
+            // text-align: center;
+            // color: #989898;
+            @media only screen and (max-width: 600px) { font-size: 20px;}
+        }
+
+        h6{
+            margin: 0 10px 0 0;
+            padding: 0;
+            font-size: 14px;
+            // text-align: center;
+            // color: #989898;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            @media only screen and (max-width: 600px) { font-size: 10px;}
+        }
+    }
+
+    &__table {
+        height: 50%;
+        width: 95%;
+        border: 1px solid black;
+        display: flex;
+        flex-flow: row-reverse;
+        overflow: scroll;
+
+
+    }
+    &__column {
+        height: 25px;
+        padding-top: 5px !important;
+        @media only screen and (max-width: 600px) { font-size: 10px;}
+    }
+    &__row {
+        width: 16.6666% ;
+        border-right: 1px solid black;
+        border-left: 1px solid black;
+        text-align: center;
+       
+        @media only screen and (max-width: 600px) { font-size: 10px;}
+    }
+
+    &__last{
+
+
+        img{
+            width: 20px;
+            @media only screen and (max-width: 600px) { width: 12px;}
+            cursor: pointer;
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.185);
+            }
+        }
+       
+
+    }
+}

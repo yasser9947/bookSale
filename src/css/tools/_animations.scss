@@ -11,10 +11,157 @@ opacity: 1;
 
 @keyframes scale2 {
     0%{
-size:  0;            
-}
-      
+        clip-path: polygon(0% 0, 100% 0%, 100% 35px, 0 35px);
+    }      
             100%{
+                clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
 
 }
 }
+@keyframes scale3 {
+    0%{
+        clip-path: polygon(0% 0, 100% 0%, 100% 100px, 0 100px);
+
+}
+    100%{
+        clip-path: polygon(0% 0, 100% 0%, 100% 0%, 0 0%);
+    }      
+ 
+}
+.animtionDown {
+    animation-name: scale2;
+    animation-duration: 0.5s;
+   
+   
+}
+.animtionUp {
+    animation-name: scale3;
+    animation-duration: 1s;
+   
+   
+}
+
+@keyframes test {
+    0%{
+       transform: translateX(0%);
+
+}
+    100%{
+        transform: translateX(100%);
+    }      
+ 
+}
+
+.fadeOut {
+    animation-name: test;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+}
+//  left
+.left-enter,
+.left-exit {
+  transition: all 1000ms ;
+}
+
+.left-enter {
+    clip-path: inset(0 0 100% 0);
+}
+
+.left-enter.left-enter-active {
+    clip-path: inset(0); 
+}
+
+.left-exit {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+  clip-path: inset(0);
+}
+.left-exit-active {
+    clip-path: inset(100% 0 0 0);
+  }
+// right
+.right-exit-active {
+  transform: translateX(100%);
+}
+.right-enter,
+.right-exit {
+  transition: transform 500ms ease-out;
+}
+
+.right-enter {
+  transform: translateX(-100%);
+}
+
+.right-enter.right-enter-active {
+  transform: translateX(0%);
+}
+
+.right-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(0%);
+}
+
+.right-exit-active {
+  transform: translateX(100%);
+}
+
+// .c-enter,
+.c-exit-active {
+    transform: translateX(100%);
+  }
+  .c-enter,
+  .c-exit {
+    transition: all 500ms ease-out;
+  }
+  
+  .c-enter {
+    transform: translateX(100%);
+  }
+  
+  .c-enter.c-enter-active {
+    transform: translateX(0%);
+  }
+  
+  .c-exit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateX(0%);
+  }
+  
+  .c-exit-active {
+    transform: translateX(100%);
+  }
+//   orfer
+
+  .corder-enter,
+  .corder-exit {
+    transition: all 500ms ease-out;
+  }
+  
+  .corder-enter {
+    transform: translateX(-100%);
+  }
+  
+  .corder-enter.corder-enter-active {
+    transform: translateX(0%);
+  }
+  
+  .corder-exit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateX(0%);
+  }
+  
+  .corder-exit-active {
+    transform: translateX(-100%);
+  }

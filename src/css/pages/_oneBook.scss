@@ -8,15 +8,18 @@ $color-grey-light-2: #aaa;
 
 $color-grey-dark-1: #54483A;
 $color-grey-dark-2: #6D5D4B;
-
+@import url('https://fonts.googleapis.com/css2?family=Lateef&display=swap');
 .oneBook{
+    font-size: 20px;
     display: flex;
     justify-content: space-around;
 position: relative;
 box-shadow: 1px 1px 1px 2px rgba(10, 6, 6, 0.507);
 padding: 40px 0;
-background-image: linear-gradient(to right bottom, rgba($color-primary-light ,0.3),rgba($color-primary-dark,0.8)) ,url("https://raw.githubusercontent.com/yasser9947/Css-advance/master/img/nat-4.jpg"); 
-background-size: cover;
+background-image: linear-gradient(45deg ,rgba(169, 183, 164, 0.651) , rgba(180, 192, 175, 0.623)) ,url("https://i.pinimg.com/originals/77/75/ae/7775aef865252b226af2823ed9fc950f.jpg"); 
+background-size: 90%;
+background-position: center;
+font-family: 'Lateef', cursive;
 
 @media only screen and (max-width: 600px) {
     flex-flow: column-reverse;
@@ -46,9 +49,9 @@ background-size: cover;
         }
     }
     &__left{
-        background-color: rgba( black,   0.6);
+        background-color: rgba( #44503F,   0.6);
         box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 1.0);
-        color: #55c57a;
+        color: #1A2320;
         width: 40vw;
         text-align: center;
         margin: 0 10px;
@@ -99,9 +102,14 @@ background-size: cover;
         padding:5px 5px;
         border-radius: 50px;
         margin-bottom: 20px;
+        border: none;
         // margin-right: 20px;
         transform: translateX(97%);
-        background-image: linear-gradient(to right ,#7ed56f, #28b485);
+        background-image: linear-gradient(to right ,#EAC49A, #E7BB88);
+        transition: all .2s;
+        &:active{
+            transform: translate(97%,-2px);
+        }
     a {
         color: rgb(23, 32, 4);
         text-decoration: none;

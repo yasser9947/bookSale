@@ -6,7 +6,8 @@ export const RightSide = () => {
     const { height, width } = useWindowDimensions();
     const [flag, setFlag] = useState(true)
     return (
-        <Fragment>
+        
+             <div className={`dashboard__right ${!flag ?'animtionDown' :""}`}>
             {!(width > 600 && flag) ?
                 <div onClick={() => setFlag(!flag) } className="lines">
                     <div></div>
@@ -16,7 +17,7 @@ export const RightSide = () => {
             {(width > 600 || !flag) ?
                 < > <div className="dashboard__right__info">
                     <img src="https://www.free-css.com/assets/files/free-css-templates/preview/page192/dashgum/assets/img/ui-sam.jpg" alt="" srcset="" />
-                    <h4>name </h4>
+                    <h3>name </h3>
                 </div>
 
                     <div className="dashboard__right__box">
@@ -32,7 +33,7 @@ export const RightSide = () => {
                         <Link to="/dash/edit" className="dashboard__right__box__a"  > تعديل كتب</Link>
                     </div>
                 </> : ""}
-
-        </Fragment>
+                </div>
+        
     )
 }

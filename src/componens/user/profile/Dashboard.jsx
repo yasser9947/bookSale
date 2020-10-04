@@ -7,9 +7,9 @@ export const Dashboard = () => {
             <div className="dashboard__left">
                 <LeftSide />
             </div>
-            <div className="dashboard__right">
+            
               <RightSide />
-            </div>
+           
 
         </div>
     )

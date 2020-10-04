@@ -13,10 +13,13 @@
     }
 }
 
+
 .dashboard {
     display: flex;
 justify-content: center;
+align-items: flex-start;
 margin-top: 50px;
+
 @media only screen and (max-width: 600px) {
     
     flex-flow: column-reverse;
@@ -25,9 +28,13 @@ margin-top: 50px;
 // left ======================================
     &__left {
         width: 80%;
-        border: 1px solid black;
-        margin: 3px;
-
+        // border: 1px solid black;
+        height:  600px;
+        margin: 0 10px;
+        @media only screen and (max-width: 600px) {
+            width: 95%;
+            height:  400px;
+        }
 
     }
 
@@ -39,13 +46,15 @@ margin-top: 50px;
     &__right {
       width:   20%;
       height: 100%;
+      padding-bottom: 50px;
       background: #424a5d;
       @media only screen and (max-width: 600px) {
-    
+        padding-bottom: 0px;
         flex-flow: row-reverse;
         display: flex;
         width: 100%;
         flex-wrap: wrap;
+       
       
      
     
@@ -60,13 +69,14 @@ margin-top: 50px;
           justify-content: center;
           flex-flow: column;
           text-align: center;
+          color: rgba(236, 206, 32, 0.918);
+
           @media only screen and (max-width: 600px) {
             img {
                 clip-path: circle(20% ) !important;
-                webkit-clip-path: circle(20% );
+                webkit-clip-path: circle(20% )!important;
               }
-              animation-name: scale2;
-              animation-duration: 2s;
+             
             
         }
           img {
@@ -88,15 +98,19 @@ transition: all 0.2s ;
     flex-flow: row-reverse;
     display: flex;
     margin-right: 4%;
-    animation-name: scale2;
-    animation-duration: 2s;
+  
 }
-;    &:hover {
-            background-color: #68dff0;
-            transform: translateX(-6px);
+  &:hover {
+           
+            background-color: #418c97 ;
+            transform: translateX(6px);
             
       
     }
+    &:focus-within {
+        background-color: #68dff0;
+        transform: translateX(-6px);
+      }
        &__a{
         //    text-align: center;
            transform: translate(-50% ,-50%);
@@ -105,6 +119,8 @@ transition: all 0.2s ;
            top: 50%;
            left: 50%;
            color: #fff;
+
+          
            
           
 

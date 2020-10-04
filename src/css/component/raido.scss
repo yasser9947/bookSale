@@ -81,18 +81,23 @@
 .Card {
   padding: 1px;
   border-radius: var(--border-radius);
-    background-image: linear-gradient(to right bottom ,rgb(185, 175, 115) ,rgba(165, 187, 114, 0.178));
+  background-image: linear-gradient(to right bottom, #ffeac5a6, rgba(83, 65, 8, 0.507)),url('https://secure.img1-fg.wfcdn.com/im/42698490/compr-r85/5688/56888399/default_name.jpg');
   overflow: hidden;
   box-shadow: 
     -2px -2px 6px rgba(#fff, .6),
     2px 2px 12px #c8d8e7;
   width: 100%;
+  background-position: center;
+  background-size: cover;
+  
 }
 
 .CardInner {
   padding: 16px 16px;
-  background-image: linear-gradient(to right bottom ,rgba(105, 100, 70, 0.76) ,rgba(109, 119, 74, 0.226));
+  background-image: linear-gradient(to right bottom ,rgba(105, 100, 70, 0) rgbargba(109, 119, 74, 0)) ,url('https://secure.img1-fg.wfcdn.com/im/42698490/compr-r85/5688/56888399/default_name.jpg');
   border-radius: var(--border-radius);
+  background-position: center;
+  background-size: cover;
 }
 
 .container2 {

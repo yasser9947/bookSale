@@ -38,6 +38,7 @@ body {
     display: flex;
     justify-content: center;
     height: 100%;
+    
     @media only screen and (max-width: 600px) {
             height: 60%;
        }
@@ -60,10 +61,12 @@ body {
         transition: all .2s;
        height: 400px;
         margin: 0 5px;
+        width: 30%;
         justify-content: space-between;
         // padding: 200px 0;
         @media only screen and (max-width: 600px) {
             height: 280px;
+            width: 50%;
         }
         &:not(:last-child){
             // margin-right: 50px;
@@ -95,8 +98,13 @@ body {
        
     }
     &__p{
-        margin: 7px 5px;
+        margin: 7px 10px;
         text-align: center;
+        width: 80%;
+    }
+    &__h3{
+        text-align: right;
+        margin-right: 10px;
     }
 
 }
@@ -108,3 +116,5 @@ body {
 @import './pages/dashboard';
 @import './tools/animations';
 @import './pages/oneBook';
+@import './component/ditails';
+@import './component/theBooks';

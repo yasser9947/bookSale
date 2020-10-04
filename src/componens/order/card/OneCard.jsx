@@ -8,8 +8,9 @@ import { Link } from 'react-router-dom'
 
 export const OneCard = (props) => {
     return (
-       
-          <div className="book">
+      
+       <div className="book">
+        { true&&   <>
                 <img src="https://books-library.online/files/books-library.online-11161130Iz9I7.png" alt="book" className="book__img"/>
                 <svg className="book__like">
                     {/* <use xlink:href="img/sprite.svg#icon-heart-full"></use> */}
@@ -40,7 +41,11 @@ export const OneCard = (props) => {
                     <img src={money} height="30px" style={{marginRight :"7px"}} alt=""/>  <p>  26 Rs   </p>
                 </div>
                 <button onClick={()=>{props.history.push('/book')}} className="btn2 book__btn">مزيدا من التفاصيل</button>
-            </div>
+                </> }
+
+
+             </div>
+           
        
     )
 }
