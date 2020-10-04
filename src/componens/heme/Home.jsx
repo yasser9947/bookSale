@@ -1,13 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {motion} from 'framer-motion'
 
-export const Home = () => {
+var flglg = true
+export const Home = ({position}) => {
   return (
-    <div className="theOrder">
+    <motion.div exit="exit" className="theOrder">
 
       <h1 className="theOrder__h1"> الكتاب المستعمل</h1>
-      <div className="box">
-        <div className="box__order box__order--1">
+      < div className="box">
+        <div className="box__order box__order--1"  ref={el => {
+        if (!el) return
+       if (flglg) { flglg = false; position(el.getBoundingClientRect())}
+      }}>
           <div>
             <h3 className="box__h3"> <img src="https://freesvg.org/img/paperback-book-black-gal-.png" height="16px" alt="" /> إبحث عن كتاب </h3>
 
@@ -30,6 +35,6 @@ export const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

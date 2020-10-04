@@ -1,9 +1,9 @@
 .container{
     // background-image: linear-gradient(to right bottom ,rgb(59, 134, 156) ,rgba(165, 187, 114, 0.178));
     border-radius: 10px;
-    width: 90vw;
+    width: 95%;
     height: fit-content;
-    margin: 5rem 5vw;
+    margin: 5rem auto;
 
     &__SearchBar{
 
@@ -15,6 +15,7 @@
         display: flex;
         flex-flow: row-reverse;
         justify-content: center;
+        
     }
 
 

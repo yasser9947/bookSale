@@ -86,9 +86,10 @@
   box-shadow: 
     -2px -2px 6px rgba(#fff, .6),
     2px 2px 12px #c8d8e7;
-  width: 100%;
+  // width: 100%;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
   
 }
 
