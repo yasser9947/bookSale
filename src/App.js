@@ -29,7 +29,7 @@ function App(props) {
           initial={false}
           exitBeforeEnter >
             <Switch location={location} key={location.pathname}>
-              <Route exact path="/" render={()=><Home position={position} />} />
+              <Route exact path="/" render={()=><Home position={position} posit={posit} />} />
               <Route path="/order" render={(props) => <Order posit={posit} {...props} />} />
               <Route path="/book" render={()=><OneBook />} />
               <Route path="/login" render={()=><Login />} />

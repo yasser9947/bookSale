@@ -81,11 +81,11 @@
 .Card {
   padding: 1px;
   border-radius: var(--border-radius);
-  background-image: linear-gradient(to right bottom, #ffeac5a6, rgba(83, 65, 8, 0.507)),url('https://secure.img1-fg.wfcdn.com/im/42698490/compr-r85/5688/56888399/default_name.jpg');
+  background-image: linear-gradient(to right bottom , #ffeac58c ,rgba(83, 66, 8, 0.383)),url('https://secure.img1-fg.wfcdn.com/im/42698490/compr-r85/5688/56888399/default_name.jpg');
   overflow: hidden;
-  box-shadow: 
-    -2px -2px 6px rgba(#fff, .6),
-    2px 2px 12px #c8d8e7;
+  // background-image: linear-gradient(to right bottom , #ffeac58c ,rgba(83, 66, 8, 0.383))
+  box-shadow: 3px 4px 3px 2px rgba(0, 0, 0, 0.471);
+
   // width: 100%;
   background-position: center;
   background-size: cover;
