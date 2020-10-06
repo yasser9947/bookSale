@@ -1,6 +1,6 @@
 import React , { Fragment}from 'react'
 import {  Switch ,Route} from 'react-router-dom'
-import {Addbook} from './LiftSideComponent/Addbook'
+import {Addbook} from './LiftSideComponent/Addbook/Addbook'
 import { Ditails } from './LiftSideComponent/Ditails'
 
 export const LeftSide = () => {

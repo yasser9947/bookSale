@@ -25,7 +25,7 @@ export const Home = ({position ,posit}) => {
             <p className="box__p"> ابحث عن الكتاب الذي تريده ثم مباشره تواصل مع البائع</p>
           </motion.div>
           <motion.div exit={{ opacity : 0}} transition={transition} style={{ marginBottom: "10px" }} className="box__btn btn--wght btn ">
-            <Link to="/order" className="btn-text">تصفح المزيد</Link>
+            <Link to="/book" className="btn-text">تصفح المزيد</Link>
           </motion.div>
         </motion.div>
         <motion.div exit={{ position:"relative",transform : "translateX(1000px)"}} className="box__order box__order--2">

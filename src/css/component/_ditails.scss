@@ -56,6 +56,7 @@
             padding: 0;
             font-size: 30px;
         font-weight: 200;
+        
             // text-align: center;
             // color: #989898;
             @media only screen and (max-width: 600px) { font-size: 20px;}
@@ -85,13 +86,24 @@
     &__column {
         height: 25px;
         padding-top: 5px !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        padding-bottom: 12px;
+        margin: 0;
         @media only screen and (max-width: 600px) { font-size: 10px;}
     }
     &__row {
         width: 16.6666% ;
-        border-right: 1px solid black;
-        border-left: 1px solid black;
+        // border-right: 1px solid black;
+        // border-left: 1px solid black;
+
         text-align: center;
+         &--main{
+                     background-color: rgba(#004d40,0.8);
+                    padding: 15px 0;
+                    margin: 0 0 5px 0;
+                    color: rgb(241, 224, 192) ;
+
+         }
        
         @media only screen and (max-width: 600px) { font-size: 10px;}
     }

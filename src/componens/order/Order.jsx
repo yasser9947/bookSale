@@ -5,9 +5,8 @@ import {motion} from 'framer-motion'
 
 export const Order = (props ) => {
     const [flag ,setFlag] = useState(false)
-    const search =()=>{
-        setFlag(true)
-    }
+    const search =()=>  setFlag(true) 
+   
 
     return (
         <div>
