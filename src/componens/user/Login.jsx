@@ -15,8 +15,8 @@ export const Login = withRouter(({history}) => {
 
                     <div className="Login__heading">
 
-                        <h3 className="Login__heading--1" onClick={() => setFlag(!flag)} style={{ borderBottom: flag ? "1px black solid" : "none", opacity: flag ? "1" : "0.5" }}>التسجيل </h3>
-                        <h3 className="Login__heading--2" onClick={() => setFlag(!flag)} style={{ borderBottom: flag ? "none" : "1px black solid", opacity: flag ? "0.5" : "1" }}> تسجيل الدخول</h3>
+                        <h3 className="Login__heading--1" onClick={() => setFlag(true)} style={{ borderBottom: flag ? "1px black solid" : "none", opacity: flag ? "1" : "0.5" }}>التسجيل </h3>
+                        <h3 className="Login__heading--2" onClick={() => setFlag(false)} style={{ borderBottom: flag ? "none" : "1px black solid", opacity: flag ? "0.5" : "1" }}> تسجيل الدخول</h3>
                     </div>
                     {!flag ? <div className="Login__logInForm">
                         <label htmlFor=""> البريد الإلكتروني</label>

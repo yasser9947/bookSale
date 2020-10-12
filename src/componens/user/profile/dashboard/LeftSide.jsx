@@ -9,7 +9,7 @@ export const LeftSide = () => {
             <Switch>
             <Route path= "/dash/user" render={()=><Ditails />} ></Route>
             <Route path= "/dash/addbook" render={()=><Addbook />} ></Route>
-            <Route path= "/dash/edit" render={()=><h1> تعديل</h1>} ></Route>
+            <Route path= "/dash/edit/:id" render={()=> <Addbook />} ></Route>
             </Switch>
           
         </Fragment>

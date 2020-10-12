@@ -16,7 +16,7 @@ export const RightSide = () => {
                 </div> : ""}
             {(width > 600 || !flag) ?
                 < > <div className="dashboard__right__info">
-                    <img src="https://www.free-css.com/assets/files/free-css-templates/preview/page192/dashgum/assets/img/ui-sam.jpg" alt="" srcset="" />
+                    {/* <img src="https://www.free-css.com/assets/files/free-css-templates/preview/page192/dashgum/assets/img/ui-sam.jpg" alt="" srcset="" /> */}
                     <h3>name </h3>
                 </div>
 

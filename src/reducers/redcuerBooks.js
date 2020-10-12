@@ -19,13 +19,13 @@ const bookReducer = (state = initState, { type, paylod }) => {
 
             return {
                 ...state,
-                books: [...books, paylod]
+                books: [...state.books, paylod]
             }
         case UPDATE_BOOK:
 
             return {
                 ...state,
-                books: [...books, paylod]
+                books: [...state.books.filter(ele => ele.id != paylod.id ), paylod]
             }
         case DELETE_BOOK:
             console.log(paylod)
