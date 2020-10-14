@@ -9,6 +9,17 @@ body {
 
 .theOrder {
     height: 54vh;
+    &__h2{
+        text-align: center;
+    
+        font-family: 'Kufam', cursive;
+        font-size: 25px;
+        text-transform: uppercase;
+        font-weight: bold;
+        background-image: linear-gradient(to right bottom, #344641, rgba(35, 47, 43, 0.767));        -webkit-background-clip: text; // عشان يكون الباكقروند بالضبط على شكل التيكست ما يكون زياده
+        color: transparent; // عشان اللون يصير نفس الباكقروند 
+        letter-spacing: 2px;
+    }
     &__h1{
         text-align: center;
         margin-bottom: 40px;
@@ -19,7 +30,7 @@ body {
         background-image:  linear-gradient(to right bottom , rgb(136, 109, 35) ,rgba(83, 66, 8, 0.383));
         -webkit-background-clip: text; // عشان يكون الباكقروند بالضبط على شكل التيكست ما يكون زياده
         color: transparent; // عشان اللون يصير نفس الباكقروند 
-        letter-spacing: 2px;
+        letter-spacing: 4px;
     
         transition: all .2s; // غشان حركه الهوفر تصير سموث 
     
