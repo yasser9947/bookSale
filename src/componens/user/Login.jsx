@@ -1,9 +1,20 @@
 import React, { useState } from 'react'
 import { Link ,withRouter} from 'react-router-dom'
-
+import axios from 'axios'
 export const Login = withRouter(({history}) => {
     const [flag, setFlag] = useState(false)
+    const [userLog , setUserLog] = useState({})
+    const [userReg , setUserReg] = useState({})
 
+ const change = ({name , value}) => setUserLog({...userLog , [name] : value})
+    const logIn = ()=>{
+        axios({method: "POST", data: {email:userLog.email , password :userLog.password},  withCredentials: true,url: "http://localhost:4000/user/login",})
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+        // history.push('/dash')
+    }
+  
+    console.log(userLog)
     return (
         <div className="container">
             <div className="Login">
@@ -20,10 +31,10 @@ export const Login = withRouter(({history}) => {
                     </div>
                     {!flag ? <div className="Login__logInForm">
                         <label htmlFor=""> البريد الإلكتروني</label>
-                        <input type="email" placeholder="yasser@hotmail.com" />
+                        <input type="email" placeholder="yasser@hotmail.com"  name ="email" onChange ={(e)=>change(e.target)} />
                         <label htmlFor="">كلمة المرور</label>
-                        <input type="password" placeholder="**" />
-                        <button onClick={()=>{history.push('/dash')}} to="/dash" className="Login__logInForm__btn btn">تسجيل الدخول</button>
+                        <input type="password" placeholder="**"   name ="password" onChange ={(e)=>change(e.target)}/>
+                        <button onClick={()=>{ logIn() ;}} to="/dash" className="Login__logInForm__btn btn">تسجيل الدخول</button>
                         <h5 >نسيت كلمة المرور</h5>
                     </div>
 
