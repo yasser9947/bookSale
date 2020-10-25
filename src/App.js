@@ -1,4 +1,4 @@
-import React  ,{useState }from 'react';
+import React  ,{useState ,useEffect}from 'react';
 import './App.css';
 import './css/main.scss'
 import { Home } from './componens/heme/Home';
@@ -8,15 +8,27 @@ import { OneBook } from './componens/order/OneBook';
 import { Login } from './componens/user/Login';
 import ScrollToTop from './assist/ScrollToTop'
 import { Dashboard } from './componens/user/profile/Dashboard';
-import { AnimatePresence } from 'framer-motion'
-
+import { AnimatePresence } from 'framer-motion';
+import { NaveBAr } from './componens/nave/NaveBAr';
+import { userGo } from './assist/FuncTotoken';
+import Auto from '../src/componens/order/searchBook/Auto.jsx'
 
 function App(props) {
  const [posit, setposit] = useState({})
   const position = (position1) => setposit(position1)
+
+  useEffect(() => {
+    userGo()
+
+    return () => {
+      // cleanup
+    }
+  }, [])
   return (
     <div className="App">
+      <NaveBAr />
       <Router>
+     
         <ScrollToTop />
         <Route render={({ location }) => (
           // <AnimatePresence  initial={false} exitBeforeEnter >

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { addBookUser, updateBooksUser } from '../../../../userActions'
 import { addBook, updateBook } from '../../bookActions'
 let array = ["فيزياء", "كيمياء", "رياضيات"]
 // id :"1",
@@ -14,7 +15,7 @@ let array = ["فيزياء", "كيمياء", "رياضيات"]
 // number :"0548545888",
 // image 
 export const Addbook = withRouter(({ history, match }) => {
-    const book = useSelector(store => store.books.books.find(ele => ele.id == match.params.id))
+    const book = useSelector(store => store.userDitals.userbooks.find(ele => ele._id == match.params.id))
     const [state, setstate] = useState(book ? book : {})
     const dispatch = useDispatch()
     const changeHundlr = ({ target: { name, value } }) => setstate({ ...state, [name]: value })
@@ -39,7 +40,7 @@ export const Addbook = withRouter(({ history, match }) => {
             <input type="" onChange={(e) => changeHundlr(e)} name="code" placeholder="الرمز" value={code} />
             <label htmlFor="">التخصص </label>
             <input type="text-area" onChange={(e) => changeHundlr(e)} name="major" placeholder="اختياري" value={major} />
-            <button className="Login__logInForm__btn btn" onClick={() => { book ? dispatch(updateBook(state)) : dispatch(addBook(state)); history.push('/dash/user') }}>اضف كتاب</button>
+            <button className="Login__logInForm__btn btn" onClick={() => { book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') }}>اضف كتاب</button>
         </form>
     )
 })
