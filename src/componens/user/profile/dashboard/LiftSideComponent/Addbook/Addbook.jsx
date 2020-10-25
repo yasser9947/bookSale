@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { addBook, updateBook } from '../../bookActions'
+import { Formik, Form, Field } from 'formik'
+
 let array = ["فيزياء", "كيمياء", "رياضيات"]
+
 // id :"1",
 // name : "مبادئ الفيزياء",
 // major : "فيزياء",
@@ -12,7 +15,10 @@ let array = ["فيزياء", "كيمياء", "رياضيات"]
 // status : true ,
 // author :"احمد رمزي" , 
 // number :"0548545888",
-// image 
+// image  onClick={() => { book ? dispatch(updateBook(state)) : dispatch(addBook(state)); history.push('/dash/user') }}
+const names =  {
+    name :"" ,  id  :"", major :"", name :"", price :"", status :"", author :"", image :"", code :"", bookCase :"",  
+}
 export const Addbook = withRouter(({ history, match }) => {
     const book = useSelector(store => store.books.books.find(ele => ele.id == match.params.id))
     const [state, setstate] = useState(book ? book : {})
@@ -20,26 +26,36 @@ export const Addbook = withRouter(({ history, match }) => {
     const changeHundlr = ({ target: { name, value } }) => setstate({ ...state, [name]: value })
     const { id, major, name, price, status, author, image, code, bookCase, number } = state
     return (
-        <form className="Login__logInForm" >
-            <label htmlFor=""> اسم الكتاب</label>
-            <input type="" onChange={(e) => changeHundlr(e)} name="name" placeholder="اسم الكتاب" value={name} />
-            <label htmlFor=""> التخصص</label>
-            <select id="cars" onChange={(e) => changeHundlr(e)} name="major" value={major}>
-                {array.map(ele => <option value={ele}>{ele}</option>)}
-            </select>
-            <label htmlFor=""> المؤلف</label>
-            <input type="" onChange={(e) => changeHundlr(e)} name="author" placeholder="المؤلف" value={author} />
-            <label htmlFor=""> حالة الكتاب</label>
-            <input type="" onChange={(e) => changeHundlr(e)} name="bookCase" placeholder="حالة الكتاب" value={bookCase} />
-            <label htmlFor="">المبلغ</label>
-            <input type="" onChange={(e) => changeHundlr(e)} name="price" placeholder="المبلغ" value={price} />
-            <label htmlFor="">الصورة</label>
-            <input type="" onChange={(e) => changeHundlr(e)} name="image" placeholder="الصوره" value={image} />
-            <label htmlFor="">الرمز</label>
-            <input type="" onChange={(e) => changeHundlr(e)} name="code" placeholder="الرمز" value={code} />
-            <label htmlFor="">التخصص </label>
-            <input type="text-area" onChange={(e) => changeHundlr(e)} name="major" placeholder="اختياري" value={major} />
-            <button className="Login__logInForm__btn btn" onClick={() => { book ? dispatch(updateBook(state)) : dispatch(addBook(state)); history.push('/dash/user') }}>اضف كتاب</button>
-        </form>
+        <>
+         
+         <Formik
+                initialValues={book ? book : names}
+                onSubmit={value => {book ? dispatch(updateBook(value)) : dispatch(addBook(value)); history.push('/dash/user')}}
+            >
+               
+          
+            <Form className="Login__logInForm" >
+                <label htmlFor=""> اسم الكتاب</label>
+                <Field type=""  name="name" placeholder="اسم الكتاب" />
+                <label htmlFor=""> التخصص</label>
+                <select id="cars" onChange={(e) => changeHundlr(e)} name="major" >
+                    {array.map(ele => <option value={ele}>{ele}</option>)}
+                </select>
+                <label htmlFor=""> المؤلف</label>
+                <Field type=""  name="author" placeholder="المؤلف"  />
+                <label htmlFor=""> حالة الكتاب</label>
+                <Field type=""  name="bookCase" placeholder="حالة الكتاب" />
+                <label htmlFor="">المبلغ</label>
+                <Field type=""  name="price" placeholder="المبلغ"  />
+                <label htmlFor="">الصورة</label>
+                <Field type=""  name="image" placeholder="الصوره"  />
+                <label htmlFor="">الرمز</label>
+                <Field type=""  name="code" placeholder="الرمز"  />
+                <label htmlFor="">التخصص </label>
+                <Field type="text-area"  name="major" placeholder="اختياري"  />
+                <button type="submit" className="Login__logInForm__btn btn">اضف كتاب</button>
+            </Form>
+            </Formik>
+        </>
     )
 })
