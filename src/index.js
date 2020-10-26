@@ -8,8 +8,8 @@ import reducer from './reducers/reducerRoot'
 import {Provider} from 'react-redux'
 import { configurStor } from './store/configurStore';
 
-const store = configurStor()
-
+export const store = configurStor()
+ 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

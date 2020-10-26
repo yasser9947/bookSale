@@ -27,6 +27,7 @@ padding: 20px 0;
     align-items: center;
     background-image: linear-gradient(-90deg,rgba(#f9fbe7, 0.863) 50%,rgba(   #f9fbe7, 0.463) 20% , rgba(246, 240, 187, 0.37) 20% , ), url('https://i.pinimg.com/originals/45/65/af/4565afc3791d800532723a28c329b3c1.jpg');
 background-size: contain;
+// height: fit-content;
     @media only screen and (max-width: 600px) {
         padding: 0;
 
@@ -39,7 +40,7 @@ background-size: contain;
 
              background-image: linear-gradient(to right bottom , rgba(#f9fbe7, 0.463) , rgba(246, 240, 187, 0.37)), url('https://i.pinimg.com/originals/45/65/af/4565afc3791d800532723a28c329b3c1.jpg');
             width: 200px;
-            height: 350px;
+            min-height: 350px;
              border-radius: 10px;
            }
     }
@@ -59,7 +60,7 @@ background-size: contain;
         
         // border-radius: 100px;
         width: 400px;
-        height: 350px;
+        min-height: 350px;
         padding:10px 70px 50px 70px;
         // background-image:  linear-gradient(to right bottom ,rgba($color-primary-light,0.2) , rgba($color-primary-dark,.2) ), url('../../svg/bookBg.jpeg');
         background-size: cover;
@@ -93,7 +94,7 @@ background-size: contain;
             margin-bottom: 3px;
 
         }
-        input{
+        input ,select{
             // opacity: 0.3;
             z-index: 2;
             text-align: right;
@@ -109,6 +110,7 @@ background-size: contain;
                 transform: scale(1.01);
             }
         }
+     
         &__btn{
             background-image:  linear-gradient(to right bottom ,rgba(#004d40,0.8) , rgba(#00251a,.8) );
             width: 75%;
@@ -144,4 +146,15 @@ background-size: contain;
         }
     }
 
+}
+
+.imageInsearch{
+
+    img {
+        transition: all 0.2s;
+        &:hover {
+            border: 6px solid green;
+        }
+
+    }
 }

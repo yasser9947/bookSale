@@ -9,10 +9,12 @@ let imgs = ['https://books-library.online/files/books-library.online-11161130Iz9
 let msg = "I'm%20interested%20in%20your%20car%20for%20sale"
 export const OneBook = ({ match }) => {
     const [image2, setImage] = useState({ imgs, img: imgs[0] })
-    const book = useSelector(store => store.books.books.find(ele => ele.id == match.params.id))
+
+    const book = useSelector(store => store.books.books.find(ele => ele._id == match.params.id))
+    // console.log(book)
     const {  name,   author, image,   number } = book
     const msg = ("السلام عليكم ورحمه الله و بركاته انا مهتم بشراء  " +name + "من موقع الكتاب المستعمل ").split("").map(a => a ==" " ?  "%20" :a).join("")
-    console.log(msg)
+    // console.log(msg)
     const changeInage = ({ target: { src } }) => setImage({ imgs: image.imgs.map(ele => ele), img: src })
     return (
         <div className="container">

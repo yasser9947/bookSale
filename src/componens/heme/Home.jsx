@@ -1,12 +1,24 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import {motion} from 'framer-motion'
 import { transition } from '../../assist/animition'
+import swal from 'sweetalert';
 
 
 var flglg = true
 
-export const Home = ({position ,posit}) => {
+export const Home = ({position ,posit , history}) => {
+
+ const checkLogIN = () => {
+  swal("تحتاج تسجل الدخول قبل بيع كتاب ", {
+    buttons: ["تسجيل جديد ", "تسجيل الدخول"],
+  }).then((value) => {
+    
+   if (value) history.push('/login')
+   history.push('/login')
+     })
+
+}
   return (
     <div className="theOrder">
       <motion.h1 exit={{ position:"relative",transform : "translateY(-500px)"}} transition={transition} className="theOrder__h1"> الكتاب المستعمل</motion.h1>
@@ -29,12 +41,13 @@ export const Home = ({position ,posit}) => {
         </motion.div>
         <motion.div exit={{ position:"relative",transform : "translateX(1000px)"}} className="box__order box__order--2">
           <div>
+            
             <h3 className="box__h3"> <img src="https://freesvg.org/img/tag.png" height="16px" alt="" /> بيع كتاب</h3>
             {/* <img src="https://www.flaticon.com/svg/static/icons/svg/2721/2721576.svg" className="box__img" alt="" /> */}
             <p className="box__p">من هنا تستطيع الدخول على حسابك و من ثم  بيع اضافه كتابك وبيعه</p>
           </div>
           <div style={{ marginBottom: "10px" }} className="box__btn btn--wght btn ">
-            <Link to="/login" className="btn-text">تصفح المزيد</Link>
+            <a  onClick={() => checkLogIN() }   className="btn-text">تصفح المزيد</a>
           </div>
         </motion.div>
       </div>

@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom'
 
 export const OneCard = (props) => {
 
-    const { id, major, name, price, status, author, image, code, bookCase } = props.book
+    const { _id, major, name, price, status, author, image, code, bookCase } = props.book
+     console.log(_id)
     return (
 
         <div className="book">
@@ -34,7 +35,7 @@ export const OneCard = (props) => {
                         <img src={money}   alt="" />  <p>  {price} Rs   </p>
                     </div>
                 </div>
-                <button onClick={() => { props.history.push(`/book/${id}`) }} className="btn2 book__btn">مزيدا من التفاصيل</button>
+                <button onClick={() => { props.history.push(`/book/${_id}`) }} className="btn2 book__btn">مزيدا من التفاصيل</button>
             </>
 
             }

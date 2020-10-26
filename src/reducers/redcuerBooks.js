@@ -1,12 +1,13 @@
 import { books } from "../assist/testApi"
-import { ADD_BOOK, DELETE_BOOK, UPDATE_BOOK } from "../componens/user/profile/dashboard/booksConstens"
+import { ADD_BOOK, DELETE_BOOK, UPDATE_BOOK ,SEARCH_BOOK } from "../componens/user/profile/dashboard/booksConstens"
 
 
 
 
 const initState = {
-    books: books,
-    selectBook: {}
+    books: [],
+    selectBook: {} ,
+    
 }
 
 
@@ -14,6 +15,11 @@ const initState = {
 const bookReducer = (state = initState, { type, paylod }) => {
 
     switch (type) {
+        case SEARCH_BOOK:
+            return {
+                ...state,
+                books: paylod
+            }
 
         case ADD_BOOK:
 

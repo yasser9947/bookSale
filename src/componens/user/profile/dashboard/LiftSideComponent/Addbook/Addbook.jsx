@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { addBookUser, updateBooksUser } from '../../../../userActions'
 import { addBook, updateBook } from '../../bookActions'
 import { Formik, Form, Field } from 'formik'
+import Axios from 'axios'
+import swal from '@sweetalert/with-react';
 
 let array = ["فيزياء", "كيمياء", "رياضيات"]
 
@@ -16,46 +19,74 @@ let array = ["فيزياء", "كيمياء", "رياضيات"]
 // author :"احمد رمزي" , 
 // number :"0548545888",
 // image  onClick={() => { book ? dispatch(updateBook(state)) : dispatch(addBook(state)); history.push('/dash/user') }}
-const names =  {
-    name :"" ,  id  :"", major :"", name :"", price :"", status :"", author :"", image :"", code :"", bookCase :"",  
+const names = {
+    name: "", id: "", major: "", name: "", price: "", status: "", author: "", image: "", code: "", bookCase: "",
 }
 export const Addbook = withRouter(({ history, match }) => {
-    const book = useSelector(store => store.books.books.find(ele => ele.id == match.params.id))
+    const book = useSelector(store => store.userDitals.userbooks.find(ele => ele._id == match.params.id))
     const [state, setstate] = useState(book ? book : {})
+    const [img , setImg] = useState(false)
     const dispatch = useDispatch()
+    useEffect(() => {
+
+
+        return () => {
+
+        }
+    }, [])
+    // data[0].url
+    const seacrhImages = (value) => {
+        swal({
+            text: 'Search for a movie. e.g. "La La Land".',
+            content: "input",
+            button: {
+              text: "Search!",
+              closeModal: false,
+            },
+          }).then((value) => {
+            Axios.put('http://localhost:4000/book/images', { search:value  })
+                .then(data => {
+                    console.log(data)
+                    swal(
+                        <div>
+                            <h1>Hello world!</h1>
+                            <div className ="imageInsearch">
+                            {data.data.map(ele => <img src={ele.url}  style={{border :  "6px solid green"}} onClick={()=>  setstate({...state,image :ele.url })} height="150px" width="150px" />)}
+                            </div>
+                            <p>
+                                This is now rendered with JSX!
+                              </p>
+                        </div>
+                    )
+                })
+        })
+    }
+
+
     const changeHundlr = ({ target: { name, value } }) => setstate({ ...state, [name]: value })
     const { id, major, name, price, status, author, image, code, bookCase, number } = state
     return (
-        <>
-         
-         <Formik
-                initialValues={book ? book : names}
-                onSubmit={value => {book ? dispatch(updateBook(value)) : dispatch(addBook(value)); history.push('/dash/user')}}
-            >
-               
-          
-            <Form className="Login__logInForm" >
-                <label htmlFor=""> اسم الكتاب</label>
-                <Field type=""  name="name" placeholder="اسم الكتاب" />
-                <label htmlFor=""> التخصص</label>
-                <select id="cars" onChange={(e) => changeHundlr(e)} name="major" >
-                    {array.map(ele => <option value={ele}>{ele}</option>)}
-                </select>
-                <label htmlFor=""> المؤلف</label>
-                <Field type=""  name="author" placeholder="المؤلف"  />
-                <label htmlFor=""> حالة الكتاب</label>
-                <Field type=""  name="bookCase" placeholder="حالة الكتاب" />
-                <label htmlFor="">المبلغ</label>
-                <Field type=""  name="price" placeholder="المبلغ"  />
-                <label htmlFor="">الصورة</label>
-                <Field type=""  name="image" placeholder="الصوره"  />
-                <label htmlFor="">الرمز</label>
-                <Field type=""  name="code" placeholder="الرمز"  />
-                <label htmlFor="">التخصص </label>
-                <Field type="text-area"  name="major" placeholder="اختياري"  />
-                <button type="submit" className="Login__logInForm__btn btn">اضف كتاب</button>
-            </Form>
-            </Formik>
-        </>
+        <form className="Login__logInForm" >
+            <label htmlFor=""> اسم الكتاب</label>
+            <input type="" onChange={(e) => changeHundlr(e)} name="name" placeholder="اسم الكتاب" value={name} />
+            <label htmlFor=""> التخصص</label>
+            <select dir="rtl" id="" onChange={(e) => changeHundlr(e)} name="major" value={major}>
+                {array.map(ele => <option value={ele}>{ele}</option>)}
+            </select>
+            <label htmlFor=""> المؤلف</label>
+            <input type="" onChange={(e) => changeHundlr(e)} name="author" placeholder="المؤلف" value={author} />
+            <label htmlFor=""> حالة الكتاب</label>
+            <input type="" onChange={(e) => changeHundlr(e)} name="bookCase" placeholder="حالة الكتاب" value={bookCase} />
+            <label htmlFor="">المبلغ</label>
+            <input type="" onChange={(e) => changeHundlr(e)} name="price" placeholder="المبلغ" value={price} />
+            <label htmlFor="">الصورة</label>
+            <input value="Add to favorites" type="button" onClick={() => seacrhImages("رياضيات")} />
+            <input type="" onChange={(e) => changeHundlr(e)} name="image" placeholder="الصوره" value={img ? img :image} />
+            <label htmlFor="">الرمز</label>
+            <input type="" onChange={(e) => changeHundlr(e)} name="code" placeholder="الرمز" value={code} />
+            <label htmlFor="">التخصص </label>
+            <input type="text-area" onChange={(e) => changeHundlr(e)} name="major" placeholder="اختياري" value={major} />
+            <button className="Login__logInForm__btn btn" onClick={() => { book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') }}>اضف كتاب</button>
+        </form>
     )
 })
