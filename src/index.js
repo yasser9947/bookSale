@@ -7,7 +7,7 @@ import {createStore} from 'redux'
 import reducer from './reducers/reducerRoot'
 import {Provider} from 'react-redux'
 import { configurStor } from './store/configurStore';
-
+// 
 export const store = configurStor()
  
 ReactDOM.render(

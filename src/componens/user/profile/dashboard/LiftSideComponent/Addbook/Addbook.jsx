@@ -26,6 +26,7 @@ export const Addbook = withRouter(({ history, match }) => {
     const book = useSelector(store => store.userDitals.userbooks.find(ele => ele._id == match.params.id))
     const [state, setstate] = useState(book ? book : {})
     const [img , setImg] = useState(false)
+    const [crazyArray , setCrazyArray] =useState(new Array(10))
     const dispatch = useDispatch()
     useEffect(() => {
 
@@ -47,11 +48,13 @@ export const Addbook = withRouter(({ history, match }) => {
             Axios.put('http://localhost:4000/book/images', { search:value  })
                 .then(data => {
                     console.log(data)
+                    
+                    let a = crazyArray
                     swal(
                         <div>
                             <h1>Hello world!</h1>
                             <div className ="imageInsearch">
-                            {data.data.map(ele => <img src={ele.url}  style={{border :  "6px solid green"}} onClick={()=>  setstate({...state,image :ele.url })} height="150px" width="150px" />)}
+                            {data.data.map((ele,i) => <img src={ele.url} key={i}  style={{border :crazyArray[i]}} onClick={()=>  {setstate({...state,image :ele.url }) ;a[i]="6px solid black" ;setCrazyArray(a) }} height="150px" width="150px" />)}
                             </div>
                             <p>
                                 This is now rendered with JSX!
@@ -62,7 +65,7 @@ export const Addbook = withRouter(({ history, match }) => {
         })
     }
 
-
+console.log(crazyArray)
     const changeHundlr = ({ target: { name, value } }) => setstate({ ...state, [name]: value })
     const { id, major, name, price, status, author, image, code, bookCase, number } = state
     return (
