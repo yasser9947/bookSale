@@ -60,7 +60,7 @@ export const updateBooksUser = (book) => {
 }
 export const deleteBooksUser = (book) => {
 
- Axios.delete(`http://localhost:4000/book/${book}`)
+ Axios.delete(`http://localhost:4000/book/${book._id}`)
         .then(data => console.log(data))
         .catch(err => console.log(err))
 
