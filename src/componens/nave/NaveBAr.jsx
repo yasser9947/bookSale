@@ -8,13 +8,13 @@ export const NaveBAr =withRouter( ({history}) => {
     const login = useSelector(store => store.userDitals.login)
 
     return (
-        <nave className="navebar">
+        <div className="navebar">
             <img src={bookLogo} onClick={() => history.push('/')}  className="navebar__logo" />
             <div className="navebar__right" onClick={() => login ?history.push('/dash') :history.push('/login') }>
                 <img src={!login ? userTologin : userLoginS}  className="navebar__userDitailse" />
                 {!login && <label htmlFor="">سجل الدخول</label>}
             </div>
 
-        </nave>
+        </div>
     )
 })

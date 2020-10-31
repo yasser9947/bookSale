@@ -1,16 +1,23 @@
 import { books } from "../assist/testApi"
 import { ADD_BOOK, DELETE_BOOK, UPDATE_BOOK ,SEARCH_BOOK } from "../componens/user/profile/dashboard/booksConstens"
 
-
-
-
-const initState = {
+ let  initState = {
     books: [],
     selectBook: {} ,
     
 }
+if (localStorage.searchBook) {
+    
+     initState = {
+    books: JSON.parse(localStorage.searchBook),
+    selectBook: {} ,
+    
+}
+}
 
 
+
+console.log(initState)
 
 const bookReducer = (state = initState, { type, paylod }) => {
 

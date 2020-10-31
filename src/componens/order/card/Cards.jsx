@@ -8,7 +8,7 @@ export const Cards = (props) => {
     return (
         <div>
              <section className="books">
-            {books.map(book => <> <OneCard book={book} {...props}/></>)} 
+            {books.map((book,i) => <> <OneCard key={i} book={book} {...props}/></>)} 
           
              </section>
        
