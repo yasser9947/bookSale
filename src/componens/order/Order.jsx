@@ -15,7 +15,7 @@ export const Order = (props ) => {
         setFlag(true) 
         console.log(value)
         if (value == "") {
-            Axios.get(`http://localhost:4000/book/allbooks` ,)
+            Axios.get(`/book/allbooks` ,)
             .then(data => {
                 console.log(data)
                 dispatch(searchBook(data.data))
@@ -23,7 +23,7 @@ export const Order = (props ) => {
             .catch(err => console.log(err))
         }else{
             console.log(searchType)
-            Axios.get(`http://localhost:4000/book/${value}-${searchType}`)
+            Axios.get(`/book/${value}-${searchType}`)
             .then(data => {
                 dispatch(searchBook(data.data.books))
             })
