@@ -4,124 +4,12 @@ body {
         background-image: linear-gradient(to right bottom , rgba(#f9fbe7, 0.863) , rgba(246, 240, 187, 0.87));
    background-size: 100%;
    height:100vh;
+   max-width: 1250px;
+   margin: auto;
     
 }
 
-.theOrder {
-    height: 54vh;
-    &__h2{
-        text-align: center;
-    
-        font-family: 'Kufam', cursive;
-        font-size: 25px;
-        text-transform: uppercase;
-        font-weight: bold;
-        background-image: linear-gradient(to right bottom, #344641, rgba(35, 47, 43, 0.767));        -webkit-background-clip: text; // عشان يكون الباكقروند بالضبط على شكل التيكست ما يكون زياده
-        color: transparent; // عشان اللون يصير نفس الباكقروند 
-        letter-spacing: 2px;
-    }
-    &__h1{
-        text-align: center;
-   
-        font-family: 'Kufam', cursive;
-        font-size: 3.5rem;
-        text-transform: uppercase;
-        font-weight: bold;
-        background-image:  linear-gradient(to right bottom , rgb(136, 109, 35) ,rgba(83, 66, 8, 0.383));
-        -webkit-background-clip: text; // عشان يكون الباكقروند بالضبط على شكل التيكست ما يكون زياده
-        color: transparent; // عشان اللون يصير نفس الباكقروند 
-        letter-spacing: 4px;
-        margin: 30px auto 40px auto;
-        width: 90%;
-    
-        transition: all .2s; // غشان حركه الهوفر تصير سموث 
-    
-    
-    
-        &:hover {
-            transform: skewY(5deg)  skewX(5deg) ;
-            text-shadow: 0.5rem 1rem 2rem rgba(black,  0.2);
-        }
-
-    }
-
-}
-.box {
-
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    
-    @media only screen and (max-width: 600px) {
-            height: 60%;
-       }
-
-    &__img{
-        @media only screen and (max-width: 600px) {
-             height: 150px;
-             width: 140px;
-            }
-         height: 300px;
-         width: 307px;
-    }
-
-    &__order  {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        border-radius: 4px;
-        box-shadow: 3px 4px 3px 2px rgba(0, 0, 0, 0.471);
-        transition: all .2s;
-       height: 400px;
-        margin: 0 5px;
-        width: 30%;
-        justify-content: space-between;
-        // padding: 200px 0;
-        @media only screen and (max-width: 600px) {
-            height: 280px;
-            width: 50%;
-        }
-        &:not(:last-child){
-            // margin-right: 50px;
-        }
-        @media only screen and (max-width: 600px) {
-            // padding-bottom: 360px ;
-        }
-        
-        
-
-        &--1{
-            // background-color: blue;
-            background-image: linear-gradient(to right bottom , #ffeac58c ,rgba(83, 66, 8, 0.383)),url('https://i.pinimg.com/originals/69/ae/77/69ae7713363c5f94349ee58f28966072.jpg') ;
-            // 
-            background-size: cover;
-        }
-        &--2{
-            // background-color: blue;
-
-            background-image: linear-gradient(to right bottom , rgba(83, 66, 8, 0.383) ,#ffeac5b0) , url('https://i.pinimg.com/originals/2d/b9/9d/2db99d692dda06047cad90282d4a3ea1.jpg');
-            background-position: left;
-
-        }
-        
-
-        &:hover{
-            transform: translateY(-10px);
-            background-position: 10%;
-        }
-       
-    }
-    &__p{
-        margin: 7px 10px;
-        text-align: center;
-        width: 80%;
-    }
-    &__h3{
-        text-align: right;
-        margin-right: 10px;
-    }
-
-}
+@import './pages/home';
 @import './component/btn';
 @import './pages/preOrder';
 @import './pages/order';
@@ -129,6 +17,7 @@ body {
 @import './pages/login';
 @import './pages/dashboard';
 @import './tools/animations';
+@import './tools/laoding';
 @import './pages/oneBook';
 @import './component/ditails';
 @import './component/theBooks';

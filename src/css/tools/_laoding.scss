@@ -1,0 +1,142 @@
+:root {
+  --grey-color: #434a54;
+  --grey-color-2: #ccd1d9;
+  --row: 3;
+  --col: 3;
+  --duration: 1.6s;
+  --anime: linear both infinite;
+
+  --line-width: 8rem;
+  --duration: 1.4s;
+  --line-height: 0.125rem;
+  --ball-width: 0.75rem;
+  --radius: calc(calc(var(--line-width)) * 0.5);
+  --width-delta: calc(var(--line-width) - calc(var(--ball-width) / 2));
+  --anime2: var(--ease-out-cubic) both infinite;
+}
+
+.block {
+  position: absolute;
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  top: 38%;
+  right: 30%;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(45deg);
+  animation: show ease-out 3s;
+ 
+}
+
+.squares {
+ 
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+}
+.squares .square {
+  width: calc(100% / var(--col));
+  height: calc(100% / var(--row));
+  background: var(--grey-color-2);
+  transform: scale(0.8);
+}
+.squares .square:nth-child(odd) {
+  background: var(--grey-color);
+}
+
+.lines1 {
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--line-width);
+  height: var(--line-width);
+}
+.lines1 .line {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transform: rotate(calc(90deg * var(--i)));
+  transform-origin: var(--radius) var(--radius);
+}
+.lines1 .line::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: var(--line-height);
+  background: var(--grey-color);
+  animation: scale-x-in-out var(--anime) var(--duration);
+  animation-delay: 1s;
+}
+.lines1 .line::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  width: var(--ball-width);
+  height: var(--ball-width);
+  background: var(--grey-color);
+  border-radius: 50%;
+  animation: slide-right var(--anime) var(--duration);
+  animation-delay: 1s;
+}
+
+@keyframes scale-x-in-out {
+  0% {
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  25%,
+  37.5% {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  37.6%,
+  50% {
+    transform: scaleX(1);
+  }
+  50.1% {
+    transform-origin: right;
+  }
+  87.5% {
+    transform-origin: right;
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+@keyframes slide-right {
+  from {
+    transform: translateX(0);
+  }
+  25%,
+  100% {
+    transform: translateX(var(--width-delta));
+  }
+}
+@keyframes show {
+  from {
+   opacity: 0;
+   transform: translateY(50px) rotate(45deg);
+
+  }
+  25%,
+  100% {
+   opacity: 1;
+   transform: translateY(0) rotate(45deg);
+  }
+}
+
+
+.rotetXX{
+  transform: rotateX(75deg) translateY(190%);
+  
+  transition: all 1s ease-in-out ;
+  box-shadow: 5px 41px 46px 34px rgba(0, 0, 0, 0.555);
+}

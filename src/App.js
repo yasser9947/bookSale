@@ -32,7 +32,7 @@ function App(props) {
 
         <ScrollToTop />
         <Route render={({ location }) => (
-          // <AnimatePresence  initial={false} exitBeforeEnter >
+          <AnimatePresence  initial={false} exitBeforeEnter >
           <Switch location={location} key={location.pathname}>
             <Route exact path="/" render={(props) => <Home {...props} position={position} posit={posit} />} />
             <Route exact path="/book" render={(props) => <Order posit={posit} {...props} />} />
@@ -40,7 +40,7 @@ function App(props) {
             <Route path="/login" render={() => <Login />} />
             <Route path="/dash" render={() => <Dashboard />} />
           </Switch>
-          // </AnimatePresence> 
+           </AnimatePresence> 
         )} />
       </Router>
     </div>

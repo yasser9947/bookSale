@@ -4,30 +4,44 @@ import axios from 'axios'
 import jwt_decode from "jwt-decode";
 import { userGo } from '../../assist/FuncTotoken';
 import LoginForm from './LoginForm';
+import {Laoding} from '../../assist/animitions/Laoding'
+
+import {motion} from 'framer-motion'
+import { flip } from '../../assist/animition'
 
 export const Login = withRouter(({ history }) => {
     const [flag, setFlag] = useState(false)
-    // const [userLog, setUserLog] = useState({})
+    const [loading, setLoading] = useState(false)
     const [userReg, setUserReg] = useState({})
 
-    // const change = ({ name, value }) => setUserLog({ ...userLog, [name]: value })
+ 
     const logIn = (log) => {
-        axios({ method: "POST", data: { email: log.email, password: log.password }, withCredentials: true, url: "http://localhost:4000/user/login", })
-            .then(data => {
+        // axios({ method: "POST", data: { email: log.email, password: log.password }, withCredentials: true, url: "http://localhost:4000/user/login", })
+        //     .then(data => {
 
-                if (!data.data) return console.log(data)
-                console.log(data)
-                localStorage.setItem("token" , data.data.token)
+        //         if (!data.data) return console.log(data)
+        //         console.log(data)
+        //         localStorage.setItem("token" , data.data.token)
                
-                userGo()
-                history.push('/dash')
-            })
-            .catch(err => console.log(err))
-        // history.push('/dash')
+        //         userGo()
+        //         setLoading(true)
+        //         setTimeout(() => {
+        //              history.push('/dash')
+        //         }, 2000);
+               
+        //     })
+        //     .catch(err => console.log(err))
+            setLoading(true)
+            setTimeout(() => {
+                history.push('/dash/user')
+           }, 2000);
+ 
     }
 
     return (
-        <div className="container">
+        <motion.div 
+        exit={{ position:"relative",transform : " rotateY(90deg)"}} transition={flip}
+        className="container" >
             
             <div className="Login">
                 <div className="Login__bg Login__bg--1">
@@ -38,7 +52,7 @@ export const Login = withRouter(({ history }) => {
 
                     <div className="Login__heading">
 
-                        <h3 className="Login__heading--1" onClick={() => setFlag(true)} style={{ borderBottom: flag ? "1px black solid" : "none", opacity: flag ? "1" : "0.5" }}>التسجيل </h3>
+                        <h3 className="Login__heading--1" onClick={() => {setFlag(true); setLoading(false)}} style={{ borderBottom: flag ? "1px black solid" : "none", opacity: flag ? "1" : "0.5" }}>التسجيل </h3>
                         <h3 className="Login__heading--2" onClick={() => setFlag(false)} style={{ borderBottom: flag ? "none" : "1px black solid", opacity: flag ? "0.5" : "1" }}> تسجيل الدخول</h3>
                     </div>
                     {!flag ?
@@ -51,7 +65,7 @@ export const Login = withRouter(({ history }) => {
                     //     <h5 >نسيت كلمة المرور</h5>
                     // </div>
                     
-                            <LoginForm logIn={logIn} />
+                            <LoginForm loading={loading} logIn={logIn} />
                         :
                         <div className="Login__logInForm">
                             <label htmlFor=""> الاسم</label>
@@ -65,9 +79,10 @@ export const Login = withRouter(({ history }) => {
                             <button className="Login__logInForm__btn btn">التسجيل</button>
 
                         </div>}
+                         {loading&& <Laoding />}
 
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 })

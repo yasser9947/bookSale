@@ -3,29 +3,41 @@ import { useDispatch, useSelector } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { addBookUser, updateBooksUser } from '../../../../userActions'
 import { addBook, updateBook } from '../../bookActions'
-import { Formik, Form, Field } from 'formik'
 import Axios from 'axios'
 import swal from '@sweetalert/with-react';
 import { mejors } from '../../../../../../assist/testApi'
+import { Form, Field, Formik, ErrorMessage } from 'formik'
+import * as yup from 'yup'
+import { FormEroor } from '../../../../../../assist/FormEroor'
 
+
+const validtionSchiema = yup.object({
+    name: yup.string().required("لا يمكن ان يكون فاضي !"),
+    major: yup.string().required("لا يمكن ان يكون فاضي !"),
+    author: yup.string().required("لا يمكن ان يكون فاضي !"),
+    bookCase: yup.string().required("لا يمكن ان يكون فاضي !"),
+    price: yup.string().required("لا يمكن ان يكون فاضي !"),
+    code: yup.string().required("لا يمكن ان يكون فاضي !"),
+    
+   
+})
+// "major"
+// "author"
+// "bookCase"
+// "price"
+// "code" 
 
 const names = {
     name: "", id: "", major: "", name: "", price: "", status: "", author: "", image: "", code: "", bookCase: "",
 }
 export const Addbook = withRouter(({ history, match }) => {
     const book = useSelector(store => store.userDitals.userbooks.find(ele => ele._id == match.params.id))
-    const [state, setstate] = useState(book ? book : {})
+    const [state, setstate] = useState(book ? book : names)
     const [img, setImg] = useState(false)
+    const [img2, setImg2] = useState(false)
     const [crazyArray, setCrazyArray] = useState(new Array(10))
     const dispatch = useDispatch()
-    useEffect(() => {
 
-
-        return () => {
-
-        }
-    }, [])
-    // data[0].url
     const seacrhImages = (value) => {
         swal({
             text: 'مثلا كتاب الثقافة الاسلامية',
@@ -52,24 +64,8 @@ export const Addbook = withRouter(({ history, match }) => {
                 })
         })
     }
-    const testrrrrr = (e) => {
-        // var myHeaders = new Headers();
-        // myHeaders.append("Authorization", "Client-ID 0c8488e195dbe2d");
+    const uploadImagefunc = (e) => {
 
-        // var formdata = new FormData();
-
-        // var requestOptions = {
-        //     method: 'GET',
-        //     headers: myHeaders,
-            
-        //     redirect: 'follow'
-        // };
-
-        // fetch("https://api.imgur.com/3/image", requestOptions)
-        //     .then(response => response)
-        //     .then(result => console.log(result))
-        //     .catch(error => console.log('error', error));
-        // console.log(e.target.files[0])
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Client-ID 0c8488e195dbe2d");
 
@@ -89,36 +85,51 @@ export const Addbook = withRouter(({ history, match }) => {
             .catch(error => console.log('error', error));
     }
 
-    console.log(crazyArray)
-    const changeHundlr = ({ target: { name, value } }) => setstate({ ...state, [name]: value })
-    const { id, major, name, price, status, author, image, code, bookCase, number } = state
-    return (
-        <form className="Login__logInForm" >
-            <label htmlFor=""> اسم الكتاب</label>
-            <input type="" onChange={(e) => changeHundlr(e)} name="name" placeholder="اسم الكتاب" value={name} />
-            <label htmlFor=""> التخصص</label>
-            <select dir="rtl" id="" onChange={(e) => changeHundlr(e)} name="major" value={major}>
-                {mejors.map(ele => <option value={ele}>{ele}</option>)}
-            </select>
-            <label htmlFor=""> المؤلف</label>
-            <input type="" onChange={(e) => changeHundlr(e)} name="author" placeholder="المؤلف" value={author} />
-            <label htmlFor=""> حالة الكتاب</label>
-            <input type="" onChange={(e) => changeHundlr(e)} name="bookCase" placeholder="حالة الكتاب" value={bookCase} />
-            <label htmlFor="">المبلغ</label>
-            <input type="" onChange={(e) => changeHundlr(e)} name="price" placeholder="المبلغ" value={price} />
-            <label htmlFor="">الرمز</label>
-            <input type="" onChange={(e) => changeHundlr(e)} name="code" placeholder="الرمز" value={code} />
-            <label htmlFor="">الصورة</label>
-            <div style={{display: "flex" , justifyContent :"flex-end" , alignItems :"center" , width :"100%"}}>
-           
-                <input className="btn" type="file" style={{ width: "20%" }} c onChange={(e) => testrrrrr(e)} />
-                <h6>او ارفع الصوره من جهازك</h6>
-                <button className="btn" style={{ width: "25%" }} type="button" onClick={() => seacrhImages("رياضيات")} > ابحث عن صوره</button>
-               
-            </div>
-            <img type="" onChange={(e) => changeHundlr(e)} name="image" placeholder="الصوره" src={img ? img : image} style={{height :"50px" , width :"50px" , float :"right" , marginTop :"5px"}}/>
 
-            <button className="Login__logInForm__btn btn" onClick={() => { book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') }}>اضف كتاب</button>
-        </form>
+    const changeHundlr = ({ target: { name, value } }) => setstate({ ...state, [name]: value })
+    const { image} = state
+    return (
+        <Formik
+            initialValues={state}
+            validationSchema={validtionSchiema}
+            // book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') 
+            onSubmit={(values) => { if (!(image == "")) {  book ? dispatch(updateBooksUser({...values, image})) : dispatch(addBookUser({...values, image})); history.push('/dash/user') } else {setImg2(true) } }} >
+            <Form className="Login__logInForm" >
+                <label htmlFor=""> اسم الكتاب</label>
+                <Field name="name" placeholder="اسم الكتاب" />
+                <FormEroor name={'name'} />
+                <label htmlFor=""> التخصص</label>
+                <Field as="select" dir="rtl" id="" name="major">
+                    {mejors.map(ele => <option value={ele}>{ele}</option>)}
+                </Field>
+                <FormEroor name={'name'} />
+                <label htmlFor=""> المؤلف</label>
+                <Field type="" name="author" placeholder="المؤلف" />
+                <FormEroor name={'author'} />
+                <label htmlFor=""> حالة الكتاب</label>
+                <Field type="" name="bookCase" placeholder="حالة الكتاب"  />
+                <FormEroor name={'bookCase'} />
+                <label htmlFor="">المبلغ</label>
+                <Field type="" name="price" placeholder="المبلغ"  />
+                <FormEroor name={'price'} />
+                <label htmlFor="">الرمز</label>
+                <Field type="" name="code" placeholder="الرمز"  />
+                <FormEroor name={'code'} />
+                <label htmlFor="">الصورة</label>
+                <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", width: "100%" }}>
+                    <input as="input" className="btn" type="file" style={{ width: "20%" }}  onChange={(e) => uploadImagefunc(e)} />
+                    <h6>او ارفع الصوره من جهازك</h6>
+                    <button className="btn" style={{ width: "25%" , padding : "6px 0px"}} type="button" onClick={() => seacrhImages("رياضيات")} > ابحث عن صوره</button>
+                </div>
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                    <Field as="img"  name="image" placeholder="الصوره" src={img ? img : image} style={{ height: "50px", width: "50px", float: "right", marginTop: "5px", marginRight: "10px" }} value={image} />
+                 
+                </div>
+    {img2 && <div style={{position:"relative" }}> <label  className ="Login__erorr2"> مافي صوره ):</label></div> }
+
+                <button type="submit" className="Login__logInForm__btn btn" >اضف كتاب</button>
+                {/* onClick={() => { book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') }} */}
+            </Form>
+        </Formik>
     )
 })
