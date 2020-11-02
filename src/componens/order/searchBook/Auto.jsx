@@ -30,11 +30,11 @@ export default class Auto extends React.Component {
   // You already implemented this logic above, so just use it.
   onSuggestionsFetchRequested = ({ value }) => {
     
-    Axios.get(`/book/${value}-${this.props.searchType}`)
+    Axios.get(`/api/book/${value}-${this.props.searchType}`)
   .then(data => {
       
       this.setState({
-        suggestions: getSuggestions(value,data.data.books,this.props.searchType )
+        suggestions:  [...new Set((getSuggestions(value,data.data.books,this.props.searchType)))]
       });
   })
   .catch(err => console.log(err))

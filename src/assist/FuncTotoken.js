@@ -13,7 +13,7 @@ export function userGo() {
         let user = jwt_decode(token).user
         store.dispatch(addUser(user))
         store.dispatch(loginUser())
-        Axios.put('http://localhost:4000/book/userbooks' , {books :user.Books })
+        Axios.put('/api/book/userbooks' , {books :user.Books })
         .then(data => store.dispatch(addBooksUser(data.data)))
         .catch(err => console.log(err))
   

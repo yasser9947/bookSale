@@ -1,0 +1,182 @@
+$marginLift : "50px";
+
+.infoUser {
+    width: 100%;
+    background-color: white;
+
+    // height: 500px;
+    &__header {
+        padding-top: 50px;
+        padding-right: 30px;
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        // width: 100%;
+        align-items: flex-end;
+
+        img {
+            width: 30px;
+        }
+
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-top: 0px;
+            text-align: right;
+        }
+    }
+
+    &__form {
+
+
+        display: flex;
+        flex-flow: column;
+        margin-right: 30px;
+        align-items: flex-end;
+        position: relative;
+
+
+
+        label {
+            text-align: right;
+            display: inline-block;
+            color: #777;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 12px;
+            font-weight: 700;
+            padding-bottom: calc(3 * 4px);
+            margin-top: calc(8 * 4px);
+
+        }
+
+        input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0;
+            border: 1px solid #777;
+            flex: 1 1 auto;
+            font-size: 16px;
+            line-height: 22px;
+            padding: 10px calc(4 * 4px);
+            max-width: 280px;
+            // text-align: right;
+            // margin-bottom: 20px;
+
+
+        }
+
+        &__oneInput {
+            display: flex;
+            flex-flow: column;
+            position: relative;
+            padding-bottom:15px ;
+        }
+
+        &__eroor {
+          
+            max-width: 250px;
+            width: 250px;
+            bottom: -25px;
+         
+            position: absolute;
+
+      
+        
+        }
+
+        &__btn{
+            width: 150px;
+            padding: 8px 10px;
+            margin: 5px 0;
+            
+        }
+    }
+}
+
+.tool_tip {
+    animation-name:leftToright ;
+    animation-duration:0.42s;
+    /* font */
+    font-family: Helvetica;
+    font-size: 13px;
+    font-weight: bold;
+    color: #cc0033;
+    line-height: 20px;
+    text-align: center;
+    /* background */
+    background-color: #fce4e4;
+    border: 1px solid #fcc2c3;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    /* positioning */
+    float: left;
+    position: relative;
+    padding: 7px 11px 4px;
+    // margin-left: auto; /* distance between error tip and element it points to */
+    margin-top: 10px;
+    // display: none;
+    width: 80%;
+
+  
+  }
+  
+  /* Left Arrow Styles */
+  .tool_tip:after, .tool_tip:before {
+    content: '';
+    border: 7px solid transparent;
+    position: absolute;
+    top :-16px;
+    
+  }
+  .tool_tip:after {
+    border-right: 6px solid #ec7878;
+    left: 101px;
+    right: 105px;
+    transform: rotateZ(90deg);
+  }
+  .tool_tip:before {
+    border-right: 7px solid #fcc2c3;
+    left: 102px;
+    top :-15px;
+    transform: rotateZ(90deg);
+  }
+@keyframes leftToright {
+
+    0%{
+        transform: translateX(0);
+        opacity: 0;
+    }
+    50%{
+        transform: translateX(5px);
+    }
+    75%{
+        transform: translateX(-5px);
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+@keyframes test2 {
+
+    0%{
+      background-color: yellow;
+    }
+  
+    100%{
+        background-color: yellow;
+    }
+
+}
+
+
+
+  

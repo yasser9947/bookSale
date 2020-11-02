@@ -8,29 +8,30 @@ import {Laoding} from '../../assist/animitions/Laoding'
 
 import {motion} from 'framer-motion'
 import { flip } from '../../assist/animition'
+import Register from './Register';
 
 export const Login = withRouter(({ history }) => {
-    const [flag, setFlag] = useState(false)
+    const [flag, setFlag] = useState(true)
     const [loading, setLoading] = useState(false)
     const [userReg, setUserReg] = useState({})
 
  
     const logIn = (log) => {
-        // axios({ method: "POST", data: { email: log.email, password: log.password }, withCredentials: true, url: "http://localhost:4000/user/login", })
-        //     .then(data => {
+        axios({ method: "POST", data: { email: log.email, password: log.password }, withCredentials: true, url: "/api/user/login", })
+            .then(data => {
 
-        //         if (!data.data) return console.log(data)
-        //         console.log(data)
-        //         localStorage.setItem("token" , data.data.token)
+                if (!data.data) return console.log(data)
+                console.log(data)
+                localStorage.setItem("token" , data.data.token)
                
-        //         userGo()
-        //         setLoading(true)
-        //         setTimeout(() => {
-        //              history.push('/dash')
-        //         }, 2000);
+                userGo()
+                setLoading(true)
+                setTimeout(() => {
+                     history.push('/dash')
+                }, 2000);
                
-        //     })
-        //     .catch(err => console.log(err))
+            })
+            .catch(err => console.log(err))
             setLoading(true)
             setTimeout(() => {
                 history.push('/dash/user')
@@ -67,18 +68,7 @@ export const Login = withRouter(({ history }) => {
                     
                             <LoginForm loading={loading} logIn={logIn} />
                         :
-                        <div className="Login__logInForm">
-                            <label htmlFor=""> الاسم</label>
-                            <input type="email" placeholder="الاسم" />
-                            <label htmlFor=""> رقم الجوال</label>
-                            <input type="email" placeholder="٠٥٥١٢٣٤٥٦٧" />
-                            <label htmlFor=""> البريد الإلكتروني</label>
-                            <input type="email" placeholder="yasser@hotmail.com" />
-                            <label htmlFor="">كلمة المرور</label>
-                            <input type="password" placeholder="" />
-                            <button className="Login__logInForm__btn btn">التسجيل</button>
-
-                        </div>}
+                      <Register />}
                          {loading&& <Laoding />}
 
                 </div>

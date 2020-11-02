@@ -41,7 +41,7 @@ export const addBookUser = (book) => {
 
     
     let id = store.getState().userDitals.user._id
-    Axios.post(`http://localhost:4000/book/` , {book ,id})
+    Axios.post(`/api/book/` , {book ,id})
     .then(data => console.log(data))
     .catch(err => console.log(err))
     return {
@@ -50,7 +50,8 @@ export const addBookUser = (book) => {
     }
 }
 export const updateBooksUser = (book) => {
-    Axios.put(`http://localhost:4000/book/${book._id}` , {book })
+console.log("S")
+    Axios.put(`/api/book/${book._id}` , {book })
     .then(data => console.log(data))
     .catch(err => console.log(err))
     return {
@@ -60,7 +61,7 @@ export const updateBooksUser = (book) => {
 }
 export const deleteBooksUser = (book) => {
 
- Axios.delete(`http://localhost:4000/book/${book._id}`)
+ Axios.delete(`/api/book/${book._id}`)
         .then(data => console.log(data))
         .catch(err => console.log(err))
 

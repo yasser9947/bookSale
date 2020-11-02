@@ -1,3 +1,6 @@
+import Axios from "axios"
+import swal from "sweetalert"
+
 export const  books =[{
     id :"1",
     name : "مبادئ الفيزياء",
@@ -55,3 +58,30 @@ export let mejors = [
     "لغة عربية",
     
     "فيزياء", "كيمياء", "رياضيات" , "الطب والجراحه العامه" , "هندسة مدنية وبيئية"]
+
+    export const changeStatus = (id) =>{
+        swal({
+            title: " هل انت متأكد من انه تم بيع الكتاب؟",
+           
+            icon: "warning",
+            buttons: ["لا سوف اتراجع", "نعم متأكد"],
+            successMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+            Axios.put(`/api/book/status/${id}`)
+            .then(data => swal("الحمد لله ,الله يربحك", {icon: "success",}))
+            .catch(err =>console.log(err))
+              
+            } else {
+              swal({
+                text:   "الكتاب لا يزال معروض منصه البيع",
+                buttons :"حسنا"
+              });
+            }
+          });
+
+
+
+     
+    }
