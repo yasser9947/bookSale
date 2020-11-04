@@ -74,16 +74,18 @@ margin-top: 50px;
 
           @media only screen and (max-width: 600px) {
             img {
-                clip-path: circle(20% ) !important;
-                webkit-clip-path: circle(20% )!important;
+                clip-path: circle(18% ) !important;
+                webkit-clip-path: circle(18% )!important;
               }
              
             
         }
           img {
-            clip-path: circle(30% );
-            webkit-clip-path:circle(30% );
+              margin-top: 10px;
+            clip-path: circle(25% );
+            webkit-clip-path:circle(25% );
             object-fit: contain;
+            height: 100px;
           }
       }
 

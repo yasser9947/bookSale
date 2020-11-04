@@ -1,5 +1,4 @@
 import { userGo } from "../assist/FuncTotoken"
-import { ADD_BOOK, DELETE_BOOK, UPDATE_BOOK } from "../componens/user/profile/dashboard/booksConstens"
 // 
 
 import { ADD_BOOKS_USER, ADD_BOOK_USER, ADD_TOKEN, ADD_USER, DELETE_BOOK_USER, LOGIN, LOGOT, UPDATE_BOOK_USER } from "../componens/user/userConstens"
@@ -15,9 +14,11 @@ const initState = {
 }
 
 
-
+let i = 0
 const userReducer = (state = initState, { type, paylod }) => {
-
+    i =i+1
+    if (i >3 ) console.log("yeee doo som func" + i + type)
+ 
     switch (type) {
         case LOGIN:
             return {
@@ -68,7 +69,7 @@ const userReducer = (state = initState, { type, paylod }) => {
         default:
             return state
     }
-
+ 
 
 }
 

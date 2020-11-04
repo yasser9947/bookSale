@@ -4,6 +4,7 @@ import detailse from '../../../../../svg/details.svg'
 import { useSelector } from 'react-redux'
 import { Form, Field, Formik, ErrorMessage } from 'formik'
 import * as yup from 'yup'
+import Axios from 'axios'
 
 const validtionSchiema = yup.object({
     name: yup.string().required("لا يمكن ان يكون فاضي !"),
@@ -13,9 +14,20 @@ const validtionSchiema = yup.object({
 })
 export const UserAcount = () => {
     const user = useSelector(state => state.userDitals.user)
+    const [img , setImg] = useState({image : user.image})
 
-
-
+    const updateUser =(values)=>{
+        const config = {
+            withCredentials: true,
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          };
+        Axios.put("http://localhost:4000/api/user/update" , values ,config)
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+    }
+    console.log(img)
     const { name, email, image, phoneNumber } = user
     return (
         <div>
@@ -31,7 +43,7 @@ export const UserAcount = () => {
                     validationSchema={validtionSchiema}
                  
                     // book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') 
-                    onSubmit={(values) => console.log(values)} >
+                    onSubmit={(values) => updateUser({...values, image:img.image})} >
                     <Form action="" className="infoUser__form">
                         <div className="infoUser__form__oneInput" >
                             <label htmlFor=""> :الأسم</label>
@@ -63,7 +75,7 @@ export const UserAcount = () => {
                                 </div>
                             </div>}
                         </div>
-                        <SearchImage image={image} />
+                        <SearchImage image={image} state ={img} setState ={setImg} />
                         <button disabled className="infoUser__form__btn btn-gry" > تأكيد</button>
                         <button type="submit" className="infoUser__form__btn btn-gry" > تأكيد</button>
 

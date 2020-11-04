@@ -6,7 +6,7 @@ import useWindowDimensions from '../../../../assist/useWindowDimensions'
 export const RightSide = () => {
     const { height, width } = useWindowDimensions();
     const [flag, setFlag] = useState(true)
-    const name = useSelector(state => state.userDitals.user.name)
+    const user = useSelector(state => state.userDitals.user)
 
     return (
 
@@ -19,8 +19,8 @@ export const RightSide = () => {
                 </div> : ""}
             {(width > 600 || !flag) ?
                 < > <div className="dashboard__right__info">
-                    {/* <img src="https://www.free-css.com/assets/files/free-css-templates/preview/page192/dashgum/assets/img/ui-sam.jpg" alt="" srcset="" /> */}
-                    <h3>{name} </h3>
+                    <img src={user.image} alt="صوره" />
+                    <h3>{user.name} </h3>
                 </div>
                     <div className="dashboard__right__box">
                         <Link to="/dash" className="dashboard__right__box__a"  > معلوماتي</Link>

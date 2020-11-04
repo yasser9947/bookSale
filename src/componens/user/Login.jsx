@@ -11,7 +11,7 @@ import { flip } from '../../assist/animition'
 import Register from './Register';
 
 export const Login = withRouter(({ history }) => {
-    const [flag, setFlag] = useState(true)
+    const [flag, setFlag] = useState(false)
     const [loading, setLoading] = useState(false)
     const [userReg, setUserReg] = useState({})
 
@@ -32,10 +32,10 @@ export const Login = withRouter(({ history }) => {
                
             })
             .catch(err => console.log(err))
-            setLoading(true)
-            setTimeout(() => {
-                history.push('/dash/user')
-           }, 2000);
+        //     setLoading(true)
+        //     setTimeout(() => {
+        //         history.push('/dash/user')
+        //    }, 2000);
  
     }
 

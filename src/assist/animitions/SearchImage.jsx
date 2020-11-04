@@ -5,7 +5,7 @@ import swal from "@sweetalert/with-react"
 
 import React from 'react'
 
-export const  SearchImage = ({img , image , state , setState}) => {
+export const  SearchImage = ({ image , state , setState}) => {
 
     const seacrhImages = (value, setstate, state) => {
         swal({
@@ -63,7 +63,7 @@ export const  SearchImage = ({img , image , state , setState}) => {
                 <button className="btn" style={{ width: "25%", padding: "6px 0px" }} type="button" onClick={(e) => seacrhImages(e ,setState , state)} > ابحث عن صوره</button>
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <img name="image" placeholder="الصوره" src={img ? img : image} style={{ height: "50px", width: "50px", float: "right", marginTop: "5px", marginRight: "10px" }} value={image} />
+                <img name="image" placeholder="الصوره" src={image ? image : state.image} style={{ height: "50px", width: "50px", float: "right", marginTop: "5px", marginRight: "10px" }} value={image} />
 
             </div>
         </>

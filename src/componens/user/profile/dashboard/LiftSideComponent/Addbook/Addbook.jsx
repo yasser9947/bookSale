@@ -54,7 +54,7 @@ export const Addbook = withRouter(({ history, match }) => {
                 <FormEroor name={'name'} />
                 <label htmlFor=""> التخصص</label>
                 <Field as="select" dir="rtl" id="" name="major">
-                    {mejors.map(ele => <option value={ele}>{ele}</option>)}
+                    {mejors.map((ele,key) => <option key={key} value={ele}>{ele}</option>)}
                 </Field>
                 <FormEroor name={'name'} />
                 <label htmlFor=""> المؤلف</label>
