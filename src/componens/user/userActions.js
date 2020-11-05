@@ -1,6 +1,6 @@
 import Axios from "axios"
 import { store } from '../../index'
-import { ADD_BOOKS_USER, ADD_BOOK_USER, ADD_TOKEN, ADD_USER, DELETE_BOOK_USER, LOGIN, LOGOT, UPDATE_BOOK_USER } from "./userConstens"
+import { ADD_BOOKS_USER, ADD_BOOK_USER, ADD_TOKEN, ADD_USER, DELETE_BOOK_USER, FLAG, LOGIN, LOGOT, UPDATE_BOOK_USER } from "./userConstens"
 
 export const addToken = (paylod) => {
 
@@ -70,3 +70,13 @@ export const deleteBooksUser = (book) => {
         paylod: book
     }
 }
+
+export const flagflag = (flg) => {
+
+   console.log(flg)
+   
+       return {
+           type: FLAG,
+           paylod: flg
+       }
+   }

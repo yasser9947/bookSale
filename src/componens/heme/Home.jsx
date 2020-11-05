@@ -3,19 +3,33 @@ import { Link } from 'react-router-dom'
 import {motion} from 'framer-motion'
 import { transition } from '../../assist/animition'
 import swal from 'sweetalert';
+import { useDispatch } from 'react-redux';
+import { flagflag } from '../user/userActions';
 
 
 var flglg = true
 
 export const Home = ({position ,posit , history}) => {
 
+  const dispatch = useDispatch()
  const checkLogIN = () => {
   swal("تحتاج تسجل الدخول قبل بيع كتاب ", {
-    buttons: ["تسجيل جديد ", "تسجيل الدخول"],
+    // buttons: ["تسجيل جديد ", "تسجيل الدخول"],
+    className: "red-bg",
+    buttons: {
+      catch2: {
+        text: "تسجيل جديد",
+        value: "register",
+       className :"btn"
+      },
+      catch: {
+        text: "تسجيل الدخول",
+        value: "login",
+      }, 
+    },
   }).then((value) => {
-    
-   if (value) history.push('/login')
-   history.push('/login')
+   if (value === "login") {history.push('/login') ; dispatch(flagflag(false))}
+    if( value === "register"){ history.push('/login') ; dispatch(flagflag(true))}
      })
 
 }

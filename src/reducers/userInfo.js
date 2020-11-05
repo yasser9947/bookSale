@@ -1,7 +1,7 @@
 import { userGo } from "../assist/FuncTotoken"
 // 
 
-import { ADD_BOOKS_USER, ADD_BOOK_USER, ADD_TOKEN, ADD_USER, DELETE_BOOK_USER, LOGIN, LOGOT, UPDATE_BOOK_USER } from "../componens/user/userConstens"
+import { ADD_BOOKS_USER, ADD_BOOK_USER, ADD_TOKEN, ADD_USER, DELETE_BOOK_USER, FLAG, LOGIN, LOGOT, UPDATE_BOOK_USER } from "../componens/user/userConstens"
 
 
 
@@ -9,7 +9,8 @@ const initState = {
     user: [],
     userbooks: [],
     token: "",
-    login: false
+    login: false,
+    flag:true
 
 }
 
@@ -65,6 +66,12 @@ const userReducer = (state = initState, { type, paylod }) => {
                 ...state,
                 userbooks: state.userbooks.filter(ele => ele._id != paylod._id)
             }
+            case FLAG:
+                return {
+                    ...state,
+                    flag:paylod
+                }
+    
 
         default:
             return state
