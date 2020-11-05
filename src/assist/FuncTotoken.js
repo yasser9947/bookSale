@@ -7,18 +7,34 @@ import Axios from "axios";
 
 export function userGo() {
 
-    
+
     let token = localStorage.token
     if (token) {
-        let user = jwt_decode(token).user
-        store.dispatch(addUser(user))
-        store.dispatch(loginUser())
-        Axios.put('/api/book/userbooks' , {books :user.Books })
-        .then(data => store.dispatch(addBooksUser(data.data)))
-        .catch(err => console.log(err))
-  
+        let id = jwt_decode(token).id
+        const config = {
+            withCredentials: true,
+            headers: {
+                'Content-Type': 'application/json',
+                
+            },
+        };
+        console.log(id)
+        Axios.put('/api/user/getinfo',{id} , config)
+            .then((data) => {
+                console.log(data)
+                const user = data.data.user
+                store.dispatch(addUser(user))
+                store.dispatch(loginUser())
+             if (user)   Axios.put('/api/book/userbooks', { books: user.Books })
+                    .then(data => store.dispatch(addBooksUser(data.data)))
+                    .catch(err => console.log(err))
+            })
 
-    } 
+
+
+
+
+    }
     else {
 
     }

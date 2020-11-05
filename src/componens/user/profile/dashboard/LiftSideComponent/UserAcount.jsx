@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect } from 'react'
 import { SearchImage } from '../../../../../assist/animitions/SearchImage'
 import detailse from '../../../../../svg/details.svg'
 import { useSelector } from 'react-redux'
@@ -15,7 +15,14 @@ const validtionSchiema = yup.object({
 export const UserAcount = () => {
     const user = useSelector(state => state.userDitals.user)
     const [img , setImg] = useState({image : user.image})
+    const [userChange , setUserChange] = useState(user)
+    
 
+    let changCheck = () =>  (userChange.name == user.name && userChange.email === user.email && userChange.image == user.image && userChange.phoneNumber == user.phoneNumber)
+    useEffect(() => {
+        setUserChange(user)
+       
+    }, [user])
     const updateUser =(values)=>{
         const config = {
             withCredentials: true,
@@ -27,7 +34,7 @@ export const UserAcount = () => {
         .then(data => console.log(data))
         .catch(err => console.log(err))
     }
-    console.log(img)
+   
     const { name, email, image, phoneNumber } = user
     return (
         <div>
@@ -47,17 +54,16 @@ export const UserAcount = () => {
                     <Form action="" className="infoUser__form">
                         <div className="infoUser__form__oneInput" >
                             <label htmlFor=""> :الأسم</label>
-                            <Field type="text" name="name" />
-                            {false &&
-                                <div className="infoUser__form__eroor" >
-                                    <div class="tool_tip">
+                            <Field as="input" type="text" name="name" onKeyUp ={({target }) =>setUserChange({...userChange ,[target.name] :target.value})} />
+                            <ErrorMessage name="name" render={() =><div className="infoUser__form__eroor" >
+                                    <div className="tool_tip">
                                         <span > ادخل الاسم</span>
                                     </div>
-                                </div>}
+                                </div>} />
                         </div>
                         <div className="infoUser__form__oneInput" >
                             <label htmlFor=""> :رقم الجوال</label>
-                            <Field type="text" name="phoneNumber" />
+                            <Field type="text" name="phoneNumber" onKeyUp ={({target }) =>setUserChange({...userChange ,[target.name] :target.value})}/>
                             {false &&
                                 <div className="infoUser__form__eroor" >
                                     <div class="tool_tip">
@@ -67,7 +73,7 @@ export const UserAcount = () => {
                         </div>
                         <div className="infoUser__form__oneInput" >
                             <label htmlFor=""> :البريد الالكتروني</label>
-                            <Field type="email" name="email" />
+                            <Field type="email" name="email" onKeyUp ={({target }) =>setUserChange({...userChange ,[target.name] :target.value})} />
 
                             {false && <div className="infoUser__form__eroor" >
                                 <div class="tool_tip">
@@ -76,8 +82,9 @@ export const UserAcount = () => {
                             </div>}
                         </div>
                         <SearchImage image={image} state ={img} setState ={setImg} />
-                        <button disabled className="infoUser__form__btn btn-gry" > تأكيد</button>
-                        <button type="submit" className="infoUser__form__btn btn-gry" > تأكيد</button>
+                        {changCheck()?
+                            <button disabled className="infoUser__form__btn btn-gry" > تأكيد</button>
+                        :<button type="submit" className="infoUser__form__btn btn-gry-secondry" > تأكيد</button> }
 
                     </Form>
                 </Formik>}
