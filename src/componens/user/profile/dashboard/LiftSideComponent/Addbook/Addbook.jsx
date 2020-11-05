@@ -5,18 +5,19 @@ import { addBookUser, updateBooksUser } from '../../../../userActions'
 import { addBook, updateBook } from '../../bookActions'
 import Axios from 'axios'
 import swal from '@sweetalert/with-react';
-import { mejors } from '../../../../../../assist/testApi'
+import { bookCases, mejors } from '../../../../../../assist/testApi'
 import { Form, Field, Formik, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 import { FormEroor } from '../../../../../../assist/FormEroor'
-import {SearchImage} from '../../../../../../assist/animitions/SearchImage'
+import { SearchImage } from '../../../../../../assist/animitions/SearchImage'
+import FormErorBook from '../../../../../../assist/FormErorBook'
 
 const validtionSchiema = yup.object({
     name: yup.string().required("لا يمكن ان يكون فاضي !"),
     major: yup.string().required("لا يمكن ان يكون فاضي !"),
     author: yup.string().required("لا يمكن ان يكون فاضي !"),
     bookCase: yup.string().required("لا يمكن ان يكون فاضي !"),
-    price: yup.string().required("لا يمكن ان يكون فاضي !"),
+    price: yup.number().required("لا يمكن ان يكون فاضي !"),
     code: yup.string().required("لا يمكن ان يكون فاضي !"),
 
 
@@ -45,47 +46,54 @@ export const Addbook = withRouter(({ history, match }) => {
     return (
         <div className="addBook">
 
-      
-        <Formik
-            initialValues={state}
-            validationSchema={validtionSchiema}
-            // book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') 
-            onSubmit={(values) => { if (!(image == "")) { book ? dispatch(updateBooksUser({ ...values, image })) : dispatch(addBookUser({ ...values, image })); history.push('/dash/user') } else { setImg2(true) } }} >
-            <Form className="addBook__form" >
-            <div className="addBook__form__oneInput" >
-                <label htmlFor=""> اسم الكتاب</label>
-                <Field name="name" placeholder="اسم الكتاب" />
-                <ErrorMessage name="name" render={() =><div className="addBookr__form__eroor" >
-                                    <div className="tool_tip">
-                                        <span > ادخل الاسم</span>
-                                    </div>
-                                </div>} />
-                                </div>
-                <label htmlFor=""> التخصص</label>
-                <Field as="select" dir="rtl" id="" name="major" className="input2">
-                    {mejors.map((ele,key) => <option key={key} value={ele}>{ele}</option>)}
-                </Field>
-                <FormEroor name={'name'} />
-                <label htmlFor=""> المؤلف</label>
-                <Field type="" name="author" placeholder="المؤلف" />
-                <FormEroor name={'author'} />
-                <label htmlFor=""> حالة الكتاب</label>
-                <Field type="" name="bookCase" placeholder="حالة الكتاب" />
-                <FormEroor name={'bookCase'} />
-                <label htmlFor="">المبلغ</label>
-                <Field type="" name="price" placeholder="المبلغ" />
-                <FormEroor name={'price'} />
-                <label htmlFor="">الرمز</label>
-                <Field type="" name="code" placeholder="الرمز" />
-                <FormEroor name={'code'} />
-             
-                <SearchImage state={state} setState={setstate}  img ={img}  image ={image}/>
-                {img2 && <div style={{ position: "relative" }}> <label className="Login__erorr2"> مافي صوره ):</label></div>}
 
-                <button type="submit" className="Login__logInForm__btn btn" >اضف كتاب</button>
-                {/* onClick={() => { book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') }} */}
-            </Form>
-        </Formik>
+            <Formik
+                initialValues={state}
+                validationSchema={validtionSchiema}
+                // book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') 
+                onSubmit={(values) => { if (!(image == "")) { book ? dispatch(updateBooksUser({ ...values, image })) : dispatch(addBookUser({ ...values, image })); history.push('/dash/user') } else { setImg2(true) } }} >
+                <Form className="addBook__form" >
+                    <div className="addBook__form__oneInput" >
+                        <label htmlFor=""> اسم الكتاب</label>
+                        <Field name="name" placeholder="اسم الكتاب" />
+                        <FormErorBook status={"ادخل الاسم"} name={"name"} />
+                    </div>
+                    <div className="addBook__form__oneInput" >
+                        <label htmlFor=""> التخصص</label>
+                        <Field as="select" dir="rtl" id="" name="major" className="input2">
+                            {mejors.map((ele, key) => <option key={key} value={ele}>{ele}</option>)}
+                        </Field>
+                        <FormErorBook status={"ادخل التخصص"} name={'major'} />
+                    </div>
+                    <div className="addBook__form__oneInput" >
+                        <label htmlFor=""> المؤلف</label>
+                        <Field type="" name="author" placeholder="المؤلف" />
+                        <FormErorBook status={"ادخل اسم المؤلف"} name={'author'} />
+                    </div>
+                    <div className="addBook__form__oneInput" >
+                        <label htmlFor=""> حالة الكتاب</label>
+                        <Field as="select" dir="rtl" id="" name="bookCase" className="input2">
+                            {bookCases.map((ele, key) => <option key={key} value={ele}>{ele}</option>)}
+                        </Field>
+                        <FormErorBook status={"ادخل حالة الكتاب"} name={'bookCase'} />
+                    </div>
+                    <div className="addBook__form__oneInput" >
+                        <label htmlFor="">المبلغ</label>
+                        <Field type="" name="price" placeholder="المبلغ" />
+                        <FormErorBook status={"ادخل المبلغ رقم"} name={'price'} />
+                    </div>
+                    <div className="addBook__form__oneInput" >
+                        <label htmlFor=""><span style={{fontSize:"10px"}}>(اختياري)</span> رمز المقرر</label>
+                        <Field type="" name="code" placeholder="الرمز" />
+                        <FormErorBook status={"ادخل رمز المقرر"} name={'code'} />
+                    </div >
+                    <SearchImage state={state} setState={setstate} img={img} image={image} />
+                    {img2 && <div> <label className="addBook__form__erorr2" > مافي صوره ):</label></div>}
+
+                    <button type="submit" className="infoUser__form__btn btn-gry-secondry" > تأكيد</button> 
+                    {/* onClick={() => { book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') }} */}
+                </Form>
+            </Formik>
         </div>
     )
 })
@@ -101,4 +109,4 @@ export const Addbook = withRouter(({ history, match }) => {
 <div style={{ display: "flex", justifyContent: "flex-end" }}>
 <Field as="img" name="image" placeholder="الصوره" src={img ? img : image} style={{ height: "50px", width: "50px", float: "right", marginTop: "5px", marginRight: "10px" }} value={image} />
 
-</div> */ 
+</div> */

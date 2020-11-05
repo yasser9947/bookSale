@@ -44,15 +44,16 @@
             color: #777;
             font-size: 16px;
             text-transform: uppercase;
-           
+
             line-height: 12px;
             font-weight: 700;
             padding-bottom: calc(2 * 4px);
-            margin-top: calc(7 * 4px);
+            margin-top: calc(4 * 4px);
 
         }
 
-        input ,.input2 {
+        input,
+        .input2 {
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -65,44 +66,56 @@
             padding: 8px calc(4 * 4px);
             max-width: 280px;
             text-align: right;
-            color :#777;
+            color: #777;
             // margin-bottom: 20px;
 
 
         }
-        
+
 
         &__oneInput {
             display: flex;
             flex-flow: column;
             position: relative;
-            padding-bottom:15px ;
+
         }
 
         &__eroor {
-          
+
             max-width: 250px;
             width: 250px;
             bottom: -25px;
-         
+
             position: absolute;
 
-      
-        
+
+
         }
 
-        &__btn{
+        &__btn {
             width: 150px;
             padding: 8px 10px;
             margin: 5px 0;
-            
+
+        }
+
+        &__erorr2 {
+            background-color: #fce4e4;
+            border: 1px solid #fcc2c3;
+            color: #cc0033 !important;
+            border-radius: 7px;
+            -moz-border-radius: 7px;
+            -webkit-border-radius: 7px;
+            padding: 2px;
+            animation-name: leftToright;
+            animation-duration: 0.42s;
         }
     }
 }
 
 .tool_tip {
-    animation-name:leftToright ;
-    animation-duration:0.42s;
+    animation-name: leftToright;
+    animation-duration: 0.42s;
     /* font */
     font-family: Helvetica;
     font-size: 13px;
@@ -125,26 +138,29 @@
     // display: none;
     width: 80%;
 
-  
-  }
-  
-  /* Left Arrow Styles */
-  .tool_tip:after, .tool_tip:before {
+
+}
+
+/* Left Arrow Styles */
+.tool_tip:after,
+.tool_tip:before {
     content: '';
     border: 7px solid transparent;
     position: absolute;
-    top :-16px;
-    
-  }
-  .tool_tip:after {
+    top: -16px;
+
+}
+
+.tool_tip:after {
     border-right: 6px solid #ec7878;
     left: 101px;
     right: 105px;
     transform: rotateZ(90deg);
-  }
-  .tool_tip:before {
+}
+
+.tool_tip:before {
     border-right: 7px solid #fcc2c3;
     left: 102px;
-    top :-15px;
+    top: -15px;
     transform: rotateZ(90deg);
-  }
+}
