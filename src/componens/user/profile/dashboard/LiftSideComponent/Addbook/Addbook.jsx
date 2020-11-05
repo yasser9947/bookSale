@@ -43,17 +43,26 @@ export const Addbook = withRouter(({ history, match }) => {
     const changeHundlr = ({ target: { name, value } }) => setstate({ ...state, [name]: value })
     const { image } = state
     return (
+        <div className="addBook">
+
+      
         <Formik
             initialValues={state}
             validationSchema={validtionSchiema}
             // book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') 
             onSubmit={(values) => { if (!(image == "")) { book ? dispatch(updateBooksUser({ ...values, image })) : dispatch(addBookUser({ ...values, image })); history.push('/dash/user') } else { setImg2(true) } }} >
-            <Form className="Login__logInForm" >
+            <Form className="addBook__form" >
+            <div className="addBook__form__oneInput" >
                 <label htmlFor=""> اسم الكتاب</label>
                 <Field name="name" placeholder="اسم الكتاب" />
-                <FormEroor name={'name'} />
+                <ErrorMessage name="name" render={() =><div className="addBookr__form__eroor" >
+                                    <div className="tool_tip">
+                                        <span > ادخل الاسم</span>
+                                    </div>
+                                </div>} />
+                                </div>
                 <label htmlFor=""> التخصص</label>
-                <Field as="select" dir="rtl" id="" name="major">
+                <Field as="select" dir="rtl" id="" name="major" className="input2">
                     {mejors.map((ele,key) => <option key={key} value={ele}>{ele}</option>)}
                 </Field>
                 <FormEroor name={'name'} />
@@ -77,6 +86,7 @@ export const Addbook = withRouter(({ history, match }) => {
                 {/* onClick={() => { book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') }} */}
             </Form>
         </Formik>
+        </div>
     )
 })
 

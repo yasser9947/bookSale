@@ -29,7 +29,7 @@ export const  books =[{
 
 export let names = [{ name: "اسم الكتاب", to: "name" }, { name: "التخصص", to: "major" }, { name: "الحالة", to: "bookCase" }, { name: "المبلغ", to: "price" }, { name: "المقرر", to: "code" }, { name: "حالة البيع ", to: "status" }]
 
-export let mejors = [ 
+export let mejors = [ "اختر",
     "هندسة كهربائية",
     "هندسة مكانيكية",
     "التمريض",
