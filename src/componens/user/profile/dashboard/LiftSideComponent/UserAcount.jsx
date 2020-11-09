@@ -1,10 +1,11 @@
 import React, { useState ,useEffect } from 'react'
 import { SearchImage } from '../../../../../assist/animitions/SearchImage'
 import detailse from '../../../../../svg/details.svg'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Form, Field, Formik, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 import Axios from 'axios'
+import { updateUserInfo } from '../../../userActions'
 
 const validtionSchiema = yup.object({
     name: yup.string().required("لا يمكن ان يكون فاضي !"),
@@ -12,11 +13,10 @@ const validtionSchiema = yup.object({
 
 
 })
-export const UserAcount = () => {
+export const UserAcount = ({history}) => {
     const user = useSelector(state => state.userDitals.user)
-    const [img , setImg] = useState({image : user.image})
     const [userChange , setUserChange] = useState(user)
-    
+    let dispatch = useDispatch()
 
     let changCheck = () =>  (userChange.name == user.name && userChange.email === user.email && userChange.image == user.image && userChange.phoneNumber == user.phoneNumber)
     useEffect(() => {
@@ -31,18 +31,21 @@ export const UserAcount = () => {
             },
           };
         Axios.put("http://localhost:4000/api/user/update" , values ,config)
-        .then(data => console.log(data))
+        .then(data => {
+            dispatch(updateUserInfo(data.data.updateUser))
+        // history.push('/dash')
+        })
         .catch(err => console.log(err))
     }
    
-    const { name, email, image, phoneNumber } = user
+    const { image} = user
     return (
         <div>
             <div className="infoUser">
 
                 <div className="infoUser__header">
                     <img src={detailse} alt="userinfo" />
-                    <h2>معلوماتي</h2>
+                    <h2>حسابي</h2>
                     <p>حذ راحت في تعديل اي من بياناتك كـ مستخدم في الكتاب المستعمل </p>
                 </div>
                 {!(user.length ==0) && <Formik
@@ -50,7 +53,7 @@ export const UserAcount = () => {
                     validationSchema={validtionSchiema}
                  
                     // book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') 
-                    onSubmit={(values) => updateUser({...values, image:img.image})} >
+                    onSubmit={(values) => updateUser({...values, image:userChange.image})} >
                     <Form action="" className="infoUser__form">
                         <div className="infoUser__form__oneInput" >
                             <label htmlFor=""> :الأسم</label>
@@ -81,7 +84,7 @@ export const UserAcount = () => {
                                 </div>
                             </div>}
                         </div>
-                        <SearchImage image={image} state ={img} setState ={setImg} />
+                        <SearchImage image={image} state ={userChange} setState ={setUserChange} />
                         {changCheck()?
                             <button disabled className="infoUser__form__btn btn-gry" > تأكيد</button>
                         :<button type="submit" className="infoUser__form__btn btn-gry-secondry" > تأكيد</button> }

@@ -54,6 +54,7 @@ export const  SearchImage = ({ image , state , setState}) => {
             .then(result => setstate({ ...state, image: result.data.link }))
             .catch(error => console.log('error', error));
     }
+  
 
     return (
         <>
@@ -63,7 +64,7 @@ export const  SearchImage = ({ image , state , setState}) => {
                 <button className="btn" style={{ width: "25%", padding: "6px 0px" }} type="button" onClick={(e) => seacrhImages(e ,setState , state)} > ابحث عن صوره</button>
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <img name="image" placeholder="الصوره" src={image ? image : state.image} style={{ height: "50px", width: "50px", float: "right", marginTop: "5px", marginRight: "10px" }} value={image} />
+                <img name="image" placeholder="الصوره" src={!state.image ? image : state.image} style={{ height: "50px", width: "50px", float: "right", marginTop: "5px", marginRight: "10px" }} value={image} />
 
             </div>
         </>

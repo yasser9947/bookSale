@@ -51,7 +51,7 @@ export const Addbook = withRouter(({ history, match }) => {
                 initialValues={state}
                 validationSchema={validtionSchiema}
                 // book ? dispatch(updateBooksUser(state)) : dispatch(addBookUser(state)); history.push('/dash/user') 
-                onSubmit={(values) => { if (!(image == "")) { book ? dispatch(updateBooksUser({ ...values, image })) : dispatch(addBookUser({ ...values, image })); history.push('/dash/user') } else { setImg2(true) } }} >
+                onSubmit={(values) => { if (!(image == "")) { book ? dispatch(updateBooksUser({ ...values, image })) : dispatch(addBookUser({ ...values, image })); history.push('/dash') } else { setImg2(true) } }} >
                 <Form className="addBook__form" >
                     <div className="addBook__form__oneInput" >
                         <label htmlFor=""> اسم الكتاب</label>

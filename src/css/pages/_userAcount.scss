@@ -27,6 +27,15 @@ $marginLift : "50px";
             margin-top: 0px;
             text-align: right;
         }
+        &__erorrM{
+            padding: 5px 10px;
+            border: solid red 2px;
+            background-color: rgb(246, 144, 144);
+            animation-name:leftToright ;
+            animation-duration: 0.5s;
+            color: rgb(255, 254, 253);
+            font-size: 20px;
+        }
     }
 
     &__form {
@@ -76,6 +85,7 @@ $marginLift : "50px";
             flex-flow: column;
             position: relative;
             padding-bottom:15px ;
+            align-items: flex-end;
         }
 
         &__eroor {
