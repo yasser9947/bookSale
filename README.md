@@ -1,6 +1,6 @@
 # Your Project Title
 
-One Paragraph of project description goes here
+Books Sale
 
 ## Description
 
@@ -12,10 +12,13 @@ What technologies you used that helped you build this project.
 ```
 Example:
 
-- React
-- Bootstrap with react
+- MongoDB, Mongoose
+- Express
+- REACT
+- Node.js
+- Redux
 - Ajax (axios) for API
-- etc..
+
 ```
 
 ### Wireframes
